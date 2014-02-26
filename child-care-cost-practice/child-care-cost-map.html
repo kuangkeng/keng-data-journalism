@@ -103,7 +103,7 @@
     }).addTo(map);
 
     function getStyle(feature) {
-        
+        console.log (feature.properties);
 
         return {
             weight: 2,
@@ -112,11 +112,13 @@
             fillOpacity: 0.7,
             fillColor: getColor(childCareDict[feature.properties.name])
         };
+
     }
+
 
     // get color depending on population density value
     function getColor(d) {
-        return d > 1000 ? '#8c2d04' :
+        return d > 19 ? '#8c2d04' :
             d > 17  ? '#cc4c02' :
             d > 15  ? '#ec7014' :
             d > 13  ? '#fe9929' :
@@ -172,7 +174,7 @@
     }
 
     function getLegendHTML() {
-        var grades = [0, 10, 20, 50, 100, 200, 500, 1000],
+        var grades = [7, 9, 11, 13, 15, 17, 19],
             labels = [],
             from, to;
 
@@ -185,7 +187,7 @@
                 from + (to ? '&ndash;' + to : '+'));
         }
 
-        return '<span>People per square mile</span><br>' + labels.join('<br>');
+        return '<span>Percent of median income of a married couple</span><br>' + labels.join('<br>');
     }
 </script>
 </body>
