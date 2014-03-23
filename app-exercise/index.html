@@ -1,0 +1,245 @@
+<html>
+
+<head>
+
+</head>
+
+<style type="text/css">
+
+body {
+  width:760px;
+  margin:40px auto;
+  font-family: georgia, sans;
+}
+
+h1 {
+  border-bottom:1px solid #dedede;
+  margin-bottom:20px;
+  padding-bottom:20px;
+}
+
+.drug-box {
+
+background-color: #BEE554 ;
+font-size:15px;
+width:100px;
+height:100px;
+margin-right:10px;
+margin-bottom: 10px;
+float:left;
+text-align:center;
+cursor:pointer;
+vertical-align: center;
+opacity:0.5;
+
+}
+
+.selected {
+
+opacity: 1.0;
+
+}
+
+.opening {
+
+font-size: 15px;
+width:200px;
+height:30px;
+position: absolute;
+left: 800px;
+top: 140px;
+text-align: center;
+
+}
+
+.total-dosage {
+
+font-size: 30px;
+width:200px;
+height:40px;
+position: absolute;
+left: 800px;
+top: 170px;
+text-align: center;
+
+}
+
+.condition {
+
+font-size: 15px;
+width:200px;
+position: absolute;
+left: 800px;
+top: 215px;
+text-align: center;
+
+}
+
+#chart{
+	width:550px;
+	height:450px;
+}
+
+
+
+</style>
+
+<h1>Starter interactive</h1>
+
+<div id="chart">
+
+	<div class="drug-box" id="Excedrin" data-num="2000">
+		<span class="overlay"></span>
+		<img src="images/excedrin.jpg">
+		<span class="h4">Excedrin®</span>
+          <p>Excedrin® 2000mg</p>
+	</div>
+
+	<div class="drug-box" id="Nyquil" data-num="2600">
+		<img src="images/nyquil.jpg">
+	</div>
+
+	<div class="drug-box" id="Robitussin" data-num="3840">
+		<img src="images/robitussin.jpg">
+	</div>
+
+	<div class="drug-box" id="Sudafed" data-num="3250">
+		<img src="images/Sudafed.jpg">
+	</div>
+
+	<div class="drug-box" id="Alka-Seltzer Plus" data-num="2000">
+		<img src="images/AlkaSeltzer.jpg">
+	</div>
+
+	<div class="drug-box" id="Theraflu" data-num="3900">
+		<img src="images/Theraflu.jpg">
+	</div>
+
+	<div class="drug-box" id="Tylenol Extra Strength" data-num="3000">
+		<img src="images/TylenolExtraStrngth.jpg">
+	</div>
+
+	<div class="drug-box" id="Zicam" data-num="3900">
+		<img src="images/Zicam.jpg">
+	</div>
+
+	<div class="drug-box" id="Anancin" data-num="4000">
+		<img src="images/Anacin.jpg">
+	</div>
+
+	<div class="drug-box" id="Children's Tylenol" data-num="800">
+		<img src="images/ChildrensTylenol.jpg">
+	</div>
+
+	<div class="drug-box" id="Dimetapp" data-num="800">
+		<img src="images/Dimetapp.jpg">
+	</div>
+
+	<div class="drug-box" id="Panadol" data-num="800">
+		<img src="images/Panadol.jpg">
+	</div>
+
+	<div class="drug-box" id="Dayquil" data-num="1300">
+		<img src="images/Dayquil.jpg">
+	</div>
+
+	<div class="drug-box" id="Coricidin" data-num="3900">
+		<img src="images/Coricidin.jpg">
+	</div>
+
+	<div class="drug-box" id="Tylenol with codelne" data-num="4000">
+		<img src="images/Tylenolwcodeine.jpg">
+	</div>
+
+	<div class="drug-box" id="Vicodin HP" data-num="3960">
+		<img src="images/Vicodin.jpg">
+	</div>
+
+	<div class="drug-box" id="Percocet" data-num="3900">
+		<img src="images/Percoset.jpg">
+	</div>
+
+	<div class="drug-box" id="Hydrocodone Bitartrate" data-num="3900">
+		<img src="images/Hydrocodone.jpg">
+	</div>
+
+	<div class="drug-box" id="Oxycodone" data-num="3900">
+		<img src="images/Oxycodone.jpg">
+	</div>
+
+	<div class="drug-box" id="Ultracet" data-num="2600">
+		<img src="images/Ultracet.jpg">
+	</div>
+
+</div>
+
+<div class="opening">
+	Click on a drug to see its daily limit of acetaminophen
+</div>
+
+<div class="total-dosage">
+	
+</div>
+
+<div class="condition">
+	
+</div>
+
+<script type="text/javascript" src="jquery-1.11.0.min.js"></script>
+
+<script>
+
+var currentTotal=0;
+
+  jQuery(".drug-box").click(function(){
+   
+ var thisNum=$(this).data("num");
+
+ console.log($(this).data("num"));
+
+ $(this).toggleClass("selected");
+
+ 	if($(this).hasClass("selected")){currentTotal=currentTotal+thisNum;}
+ 	else{currentTotal=currentTotal-thisNum;};
+
+ $(".opening").text("The current total is");
+ $(".opening").css("font-size","20px");
+ $(".total-dosage").text(currentTotal);
+
+ 	if(currentTotal > 10000)
+ 	{
+ 	$(".condition").text("You've exceeded the level at which liver damage can occur if taken for several days, according to McNeil, the maker of Tylenol.");
+ 	$(".condition").css("color", "red");
+ 	$(".total-dosage").css("color","red");
+ 	}
+ 	
+ 	if((currentTotal <= 10000) && (currentTotal > 4000))
+ 	{
+ 	$(".condition").text("You've exceeded the FDA's recommended maximum daily limit of acetaminophen.");
+ 	$(".condition").css("color", "orange");
+ 	$(".total-dosage").css("color","orange");
+ 	}
+
+
+ 	if(currentTotal <= 4000)
+ 	{
+ 	$(".condition").text("");
+ 	$(".total-dosage").css("color","black");
+ 	}
+
+ 
+
+
+ 
+  });
+    
+</script>
+
+<script type="text/javascript">
+
+// this is how you comment in javascript.
+console.log("this is where javascript will go!");
+
+</script>
+
+</html>
