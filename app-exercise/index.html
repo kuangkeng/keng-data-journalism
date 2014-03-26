@@ -40,13 +40,23 @@ opacity: 1.0;
 
 }
 
+.result-hover {
+filter: grayscale(100%);
+-webkit-filter: grayscale(100%);
+-moz-filter: grayscale(100%);
+filter: grayscale(100%);
+filter: gray;
+-webkit-filter: grayscale(1);
+}
+
+
 .opening {
 
 font-size: 15px;
 width:200px;
 height:30px;
 position: absolute;
-left: 800px;
+left: 100px;
 top: 140px;
 text-align: center;
 
@@ -58,7 +68,7 @@ font-size: 30px;
 width:200px;
 height:40px;
 position: absolute;
-left: 800px;
+left: 100px;
 top: 170px;
 text-align: center;
 
@@ -69,7 +79,7 @@ text-align: center;
 font-size: 15px;
 width:200px;
 position: absolute;
-left: 800px;
+left: 100px;
 top: 215px;
 text-align: center;
 
@@ -80,6 +90,28 @@ text-align: center;
 	height:450px;
 }
 
+.barframe {
+
+border-radius:5px;
+border: 1px solid #444444;
+height: 400px;
+width: 15px;
+position: absolute;
+left: 900px;
+top: 140px;
+background-color: transparent;
+z-index: 1.0;
+
+}
+
+.bar
+
+{
+border-top-left-radius: 5px;
+border-top-right-radius: 5px;
+width: 14px;
+padding-right: 1px;
+}
 
 
 </style>
@@ -170,51 +202,87 @@ text-align: center;
 
 </div>
 
+<div class="barframe">
+	<div class="bar"
+	</div>	
+</div>
+
 <div class="opening">
 	Click on a drug to see its daily limit of acetaminophen
 </div>
 
 <div class="total-dosage">
-	
+
 </div>
 
 <div class="condition">
 	
 </div>
 
+
+
 <script type="text/javascript" src="jquery-1.11.0.min.js"></script>
 
 <script>
 
+$(".drug-box").hover(function(){
+$(this).toggleClass("result-hover");
+});
+
 var currentTotal=0;
+var barHeight = 400;
 
-  jQuery(".drug-box").click(function(){
+ jQuery(".drug-box").click(function(){
    
- var thisNum=$(this).data("num");
+ 	var thisNum=$(this).data("num");
 
- console.log($(this).data("num"));
+ 	console.log($(this).data("num"));
 
- $(this).toggleClass("selected");
+ 	$(this).toggleClass("selected");
 
- 	if($(this).hasClass("selected")){currentTotal=currentTotal+thisNum;}
- 	else{currentTotal=currentTotal-thisNum;};
+ 		if($(this).hasClass("selected"))
+ 		{
+ 			currentTotal=currentTotal+thisNum;
+ 			barHeight = 400 - currentTotal*400/15000 + 'px';
+		}
 
- $(".opening").text("The current total is");
- $(".opening").css("font-size","20px");
- $(".total-dosage").text(currentTotal);
+ 		else
 
- 	if(currentTotal > 10000)
+ 		{
+ 			currentTotal=currentTotal-thisNum;
+			barHeight = 400 - currentTotal*400/15000 + 'px';
+ 		};
+
+ 	$(".bar").css("height", barHeight);
+	$(".bar").css("background", "white");
+	$(".barframe").css("background", "#444444");
+
+ 	$(".opening").text("The current total is");
+ 	$(".opening").css("font-size","20px");
+ 	$(".total-dosage").text(currentTotal);
+ 	
+	if(currentTotal > 15000)
  	{
- 	$(".condition").text("You've exceeded the level at which liver damage can occur if taken for several days, according to McNeil, the maker of Tylenol.");
+ 	$(".condition").text("You've exceeded the threshold toxic dose of acetaminophen. A single dose at this level can result in death, according to medical experts and literature.");
  	$(".condition").css("color", "red");
  	$(".total-dosage").css("color","red");
+ 	$(".barframe").css("background", "red");
  	}
- 	
- 	if((currentTotal <= 10000) && (currentTotal > 4000))
+
+ 	if((currentTotal <= 15000) && (currentTotal > 8000))
  	{
- 	$(".condition").text("You've exceeded the FDA's recommended maximum daily limit of acetaminophen.");
+ 	$(".condition").text("You've exceeded the level at which liver damage can occur if taken for several days, according to McNeil, the maker of Tylenol.");
  	$(".condition").css("color", "orange");
  	$(".total-dosage").css("color","orange");
+ 	$(".barframe").css("background", "orange");
+ 	}
+ 	
+ 	if((currentTotal <= 8000) && (currentTotal > 4000))
+ 	{
+ 	$(".condition").text("You've exceeded the FDA's recommended maximum daily limit of acetaminophen.");
+ 	$(".condition").css("color", "#d5b612");
+ 	$(".total-dosage").css("color","#d5b612");
+ 	$(".barframe").css("background", "#d5b612");
  	}
 
 
@@ -224,10 +292,7 @@ var currentTotal=0;
  	$(".total-dosage").css("color","black");
  	}
 
- 
 
-
- 
   });
     
 </script>
