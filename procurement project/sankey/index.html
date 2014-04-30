@@ -1,0 +1,71 @@
+<html>
+<head>
+  <script type="text/javascript" src="https://www.google.com/jsapi?autoload={'modules':[{'name':'visualization','version':'1.1','packages':['sankey']}]}">
+  </script>
+
+  <script src="script.js"></script>
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+  <title>Where the Top 100 received their contracts?</title>
+
+
+<style type="text/css">
+    body {
+        width:700px;
+        font-family:arial;
+        font-size:14px;
+        margin:20px auto;
+          }  
+    
+    h1  {
+      color: #B81904;
+      font-family:georgia,serif;
+      font-weight:bold;
+      font-size: 30px;
+      margin-bottom: 0px;
+        }
+
+    #intro
+          {
+       font-weight: bold;
+       font-size:16px;
+          }
+
+    #ending{
+          color: #ABA8A7;
+          }
+
+    </style>  
+
+</head>
+
+<body>
+
+<h1>Where the Top 100 received their contracts?</h1><br><br>
+<p id="intro">Five ministries contributed to nearly 70% of the contract value received by the top 100 companies.</p> <br>
+
+These ministries are:
+  <ul id="list">
+    <li>Health Ministry 22.29%</li>
+    <li>Prime Minister's Department 13.94%</li>
+    <li>Ministry of Rural and Regional Development 12.73%</li>
+    <li>Works Ministry 11.42%</li>
+    <li>Defense Ministry 8.71%</li>
+  </ul>
+
+  <br><br>
+
+  <p id="ending">This chart shows where the contracts were from. Each line represents a contract and the thickness represents the value of the contract.</p><br>
+
+ 
+
+
+<div id="sankey"></div>
+
+
+</body>
+
+
+
+</html>

@@ -1,0 +1,74 @@
+<html>
+<head>
+<script type="text/javascript"
+  src="https://www.google.com/jsapi?autoload={'modules':[{'name':'visualization','version':'1.1','packages':['sankey']}]}">
+</script>
+
+<div id="sankey_basic"></div>
+
+<script type="text/javascript">
+
+var chart;
+
+google.setOnLoadCallback(drawMouseoverVisualization);
+   function drawMouseoverVisualization() {
+    var data = new google.visualization.DataTable();
+    data.addColumn('string', 'From');
+    data.addColumn('string', 'To');
+    data.addColumn('number', 'Weight');
+    data.addRows([
+       
+  ["ROYCE PHARMA","KEMENTERIAN KESIHATAN",70875000],
+  ["AHMAD ZAKI","KEMENTERIAN KERJA RAYA",309374000],
+  ["AHMAD ZAKI","KEMENTERIAN KERJA RAYA",309374000],
+  ["AHMAD ZAKI","KEMENTERIAN WILAYAH PERSEKUTUAN",40520193],
+  ["AHMAD ZAKI","JABATAN PERDANA MENTERI",29842447],
+  ["ALAM JITU","KEMENTERIAN KESEJAHTERAAN BANDAR, PERUMAHAN DAN KERAJAAN TEMPATAN",46760546],
+  ["ALAM LANGKAWI","KEMENTERIAN KERJA RAYA",58997186],
+  ["ALMATAB","KEMENTERIAN KERJA RAYA",46859551],
+  ["AMP CORPORATION","JABATAN PERDANA MENTERI",29985000],
+  ["AMP CORPORATION","JABATAN PERDANA MENTERI",28450000],
+  ["AMP CORPORATION","KEMENTERIAN PENGANGKUTAN",9392915],
+  ["AMP CORPORATION","KEMENTERIAN PENGANGKUTAN",6799716],
+  ["AMP CORPORATION","KEMENTERIAN PENGANGKUTAN",6660000],
+  ["AMP CORPORATION","JABATAN PERDANA MENTERI",2490000],
+  ["ANFORT CORPORATION","JABATAN PERDANA MENTERI",40294800],
+  ["ANFORT CORPORATION","JABATAN PERDANA MENTERI",12869460],
+  ["ANFORT CORPORATION","KEMENTERIAN DALAM NEGERI",2000000],
+  ["ANFORT CORPORATION","KEMENTERIAN DALAM NEGERI",1931400],
+  ["ANFORT CORPORATION","KEMENTERIAN DALAM NEGERI",716688],
+  ["ANFORT CORPORATION","KEMENTERIAN DALAM NEGERI",472500],
+  ["ARAH JITU","KEMENTERIAN PERTAHANAN",45800000]
+
+    ]);
+    
+    // Set chart options
+
+    var options = {
+      width: 700,
+      height: 700,
+      sankey: {
+        node: { nodePadding: 20 },
+      }
+    };
+
+    // Instantiate and draw our chart, passing in some options.
+    chart = new google.visualization.Sankey(document.getElementById('sankey_basic'));
+    chart.draw(data, options);
+
+    google.visualization.events.addListener(chart, 'onmouseover', barMouseOver);
+    google.visualization.events.addListener(chart, 'onmouseout', barMouseOut);
+  }
+
+  function barMouseOver(e) {
+    chart.setSelection([e]);
+  }
+
+  function barMouseOut(e) {
+    chart.setSelection([{'row': null, 'column': null}]);
+
+
+   }
+</script>
+</head>
+</html>
