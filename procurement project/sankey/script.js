@@ -944,4 +944,15 @@ google.setOnLoadCallback(drawMouseoverVisualization);
 
     google.visualization.events.addListener(chart, 'onmouseover', barMouseOver);
     google.visualization.events.addListener(chart, 'onmouseout', barMouseOut);
+  
+  function barMouseOver(e) {
+    chart.setSelection([e]);
+  }
+
+  function barMouseOut(e) {
+    chart.setSelection([{'row': null, 'column': null}]);
+  }
+
+
+
   }
