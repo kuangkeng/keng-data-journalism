@@ -1,0 +1,75 @@
+<style type="text/css">
+	
+	body {
+		width:800px;
+		margin:10px auto;
+	}
+
+</style>
+
+
+
+<h1>I'm loading in a table based on the table id you put in the hash.</h1>
+
+<h5 class="Chart title">Showing table for <span class="hash-name">Monkeys</span></h5>
+
+
+<table class="example-table">
+
+</table>
+
+
+<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+
+<script type="text/javascript">
+	
+
+
+var company = getTeamIdFromHash();
+
+d3.csv("data/" + company + ".csv", function (err, data) {
+
+	if (err) throw "Error loading in company";
+
+	console.log("data", data);
+
+	var rows = d3.select(".example-table").selectAll(".company-row")
+			.data(data)
+			.enter()
+			.append("tr")
+			.attr("class", "company-row");
+
+	rows.append("td")
+			.text(function(d) { return d.client; });
+
+	rows.append("td")
+		.text(function(d) { return d.value; });
+
+
+})
+
+
+
+
+
+
+
+
+function getTeamIdFromHash() {
+  if (window.location.href.indexOf("companyId") > -1 ) {
+    return window.location.href.split("companyId=")[1];
+  }
+  else {
+    throw "error loading team id from hash";
+  }
+}
+
+
+
+
+
+
+
+
+
+</script>
