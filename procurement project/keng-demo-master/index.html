@@ -33,12 +33,6 @@ d3.csv("data/" + company + ".csv", function (err, data) {
 
 	console.log("data", data);
 
-	var thead = d3.select("thead").selectAll("thead-row")
-			.data(d3.keys(data[0]))
-			.enter()
-			.append("th")
-			.text(function(d){return d});
-
 	var rows = d3.select(".example-table").selectAll(".company-row")
 			.data(data)
 			.enter()
@@ -48,8 +42,8 @@ d3.csv("data/" + company + ".csv", function (err, data) {
 	rows.append("td")
 			.text(function(d) { return d.Company; });
 
-	//rows.append("td")
-	//	.text(function(d) { return d.Tender details; });
+	rows.append("td")
+		.text(function(d) { return d.Tender-details; });
 
 
 })
