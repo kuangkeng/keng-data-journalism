@@ -40,10 +40,10 @@ d3.csv("data/" + company + ".csv", function (err, data) {
 			.attr("class", "company-row");
 
 	rows.append("td")
-			.text(function(d) { return d.client; });
+			.text(function(d) { return d.Company; });
 
 	rows.append("td")
-		.text(function(d) { return d.value; });
+		.text(function(d) { return d.Tender details; });
 
 
 })
