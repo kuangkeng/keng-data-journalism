@@ -4,21 +4,13 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
     <title>Investigating government procurement in Malaysia</title>
-  
-<!-- load googlp table api -->
     <script type="text/javascript" src="//www.google.com/jsapi"></script>
-    <script type="text/javascript">
-      google.load('visualization', '1', {packages: ['table']});
-    </script>
-
-    <script src="script.js"></script>
-
     <link rel="stylesheet" type="text/css" href="style.css">
 
   </head>
   <body>
 
-    <h1>Top winners of open-tender government contracts</h1>
+    <h1>Top 100 winners of government open-tender contracts</h1>
     <h2>Investigating government procurement in Malaysia</h2>
     <br>
     <br>
@@ -28,45 +20,43 @@
     <br>
     <hr width="100%" size="3" noshade="noshade" color="B81904"/>
     <br>
-    <p id="intro">In a first-of-its-kind analysis on the public record of Malaysian federal government procurement, it was found that the top 100 companies that received the highest value of open-tender contracts believed to be given out from year 2005 to early 2014    
+    <p id="intro">In a first-of-its-kind analysis on the public record of Malaysian federal government procurement, it was found that the top 100 companies which received the highest value of open-tender contracts dominated 38% of the total contract value tendered from 2005 to early 2014.</p><br>
 
-      dominated 38 percent of the total contract value.</p><br>
+    The analysis was done on the 8,886 open-tender contracts published by government procurement website <span style="font-style:italic"><a href=http://myprocurement.treasury.gov.my/index.php/en/list-keputusan-tender target=_blank>MyProcurement</a></span> until Mac 6, 2014.<p>
 
-    There were a total of 8,886 open-tender contracts published on <a href=http://myprocurement.treasury.gov.my/index.php/en/list-keputusan-tender target=_blank>MyProcurement</a>, the government procurement website, until Mac 6, 2014, the day when the data used for this report was collected.<p>
+    The total value of these contracts is RM32 billion, and the top 100 companies acquired RM12.22 billion or 38 percent of it although they make up merely 2.38% of the total 4,203 companies that received contracts.<p>
 
-    The total value for these 8,886 contracts is RM32 billion, and 38 percent or RM12.22 billion of them were given to the 100 companies although they make up merely 2.38 percent of the 4,203 companies that had received contracts published in the website.<p>
+    Each of the 100 companies received an average of RM122.23 million contract value, significantly higher than the average amount of RM7.21 million received by each of the 4,203 companies. Despite the high average contract value, about half of these big players won only one contract as their contracts were those of high value.<p>
 
-    In term of value, the top 100 companies received an average of RM122.23 million worth of contracts, compared to the average value of RM7.21 million received by all 4,203 companies, despite about half of them just won one contract. This indicates the contracts given to these big players were those of high value.<p>
+<br>
 
-    On top of the list is Primabumi Sdn Bhd, a drug supplier that secured RM876,236,864 from a total of 202 contracts mostly given by the Health Ministry and the Higher Education Ministry.<p><br>
-
-    <!-- load d3 bar chart -->
-    
+    <!-- load google bar chart -->
+<table width="750" cellpadding="10" cellspacing="1" align =center>
+  <tr>
+    <td bgcolor="#FFFFFF">
     <script src="bar.js"></script>
-    <button type="button" id="b1" onclick="init();">Click to see the difference</button>  
-        <div id="barchart"></div>
-    
+    <div id="barchart"></div>
+    <button type="button" id="b1" onclick="init();">Click to see the gap</button>  
+    </td>
+  </tr>
+</table>
+<br><br>
+<h3>Meet the big boys</h3>
 
-    <br>
-    <h3>Where have the RM1.7 billion contracts gone?</h3>
+On top of the list is Primabumi Sdn Bhd, a drug supplier that secured RM876,236,864 from a total of 202 contracts mostly given by the Health Ministry and the Higher Education Ministry. The first runner-up is Inai Kiara Sdn Bhd, which has been reported to have links with politically-connected tycoon Syed Mokhtar Albukhary, with its Taiwanese joint-venture partner Hwa Chi Construction Co Ltd.<p>
 
-    The website launched in 2010 as part of the Government Transformation Programme (GTP) was found to contain numerous errors including incomplete details and typos.<p>
+Together, these companies have received 909 or 10.23% of the total 8,886 open-tender contracts.<p>
 
-    A total of 276 contracts or 5.32 percent of the total contracts gave no information about the companies that secured them. These 'missing contracts' worth RM1.7 billion in total.<p>
-
-    The worst part is the absence of date for all contracts. One can only guess the dates of some contracts of which the dates were indicated in their tender numbers. From the tender numbers, a small number of contracts were believed to be issued as early as 2005. We believed the published list was not a complete list of open-tender contracts as the total number of contracts – 8,886 - is way too small for a government.<p>
-
-    </p>
-    <br>
-
+<br>
 <!-- load google table -->
+    <script src="table.js"></script>
     <div id="table"></div>
     
-    <br><br>
+<br><br>
     
-    <hr width="100%" size="3" noshade="noshade" color="B81904"/><br><br>
-    <h3>Where the Top 100 received their contracts?</h3>
-    <p id="intro">Five ministries contributed to nearly 70% of the contract value received by the top 100 companies.</p>
+    <!-- <hr width="100%" size="3" noshade="noshade" color="B81904"/><br><br> -->
+    <h3>Who gave the contracts?</h3>
+    <p id="intro">Five ministries contributed to nearly 70% of the total contract value received by the top 100 companies.</p>
 
     These ministries are:
   <ul id="list">
@@ -79,7 +69,7 @@
 
   <br><br>
 
-  <div id="ending">This chart shows where the contracts were from. Each line represents a contract and the thickness represents the value of the contract. The number next to each ministry label is the percentage of total contract value given to the 100 companies.</div><br>
+  <div id="notes">This chart connects the giver and receiver of each contract. Each line represents a contract and the thickness represents the value of the contract. The number next to each ministry label is the percentage of total contract value given to the 100 companies. Mouseover to see the contract value. Drag the blocks to rearrange them for better visualization.</div><br>
 
 <!-- load d3 sankey chart -->
   <div id="chart"></div>
@@ -87,13 +77,27 @@
   <script src="sankey.js"></script>
   <script src="chart.js"></script>
 
-  <h3>Data cleaning</h3>
 
-    In order to conduct accurate analysis, all descriptions of “Sdn Bhd” (private limited) and “Syarikat” (company) in company names were removed as they were spelled in different ways; e.g. “Sdn. Bhd.”, “Sendirian Berhad”, or “Sykt”, “Syk”, “Sykt.”.<p>
+  <h3>The missing RM1.7 billion contracts</h3>
 
-    Best attempts were also made to correct typos when company names were spelled differently in different entries by matching their registration numbers. However many companies did not have their registration numbers keyed in or the registration numbers themselves were wrong, making the whole process of data cleaning difficult and tedious.<p>
+    During the analysis, it was found that the website, launched in 2010 as part of the Government Transformation Programme (GTP), contains plenty errors including incomplete details and typos.<p>
 
-    Names of the various government agencies have also been consolidated by merging agencies into the ministries they belong to, and standardizing agency names which have been changed over time; e.g. “Kementerian Pelajaran” and “Kementerian Pendidikan”, “Kementerian Wilayah” and “Kementerian Wilayah Persekutuan dan Kesejahteraan Bandar”.<p>
+    A total of 276 contracts or 5.32 percent of the total contracts have no information of the companies that secured them. These 'missing contracts' worth RM1.7 billion in total.<p>
 
+    The worst part is the absence of the tender dates of all contracts. We can only guess the tender dates of some contracts based on their tender numbers. From the tender numbers, a small number of contracts were believed to be issued as early as 2005. We believed the published list is not a complete list of open-tender contracts as the total number of contracts – 8,886 - is way too small for a government in a period of nine years.<p>
+
+    </p>
+<br><br>
+  <h4>Notes about data cleaning</h4>
+  <div id="notes">
+      To conduct accurate analysis, several steps have been taken to clean and repair the low-quality data scrapped from the <span style="font-style:italic"><a href=http://myprocurement.treasury.gov.my/index.php/en/list-keputusan-tender target=_blank>MyProcurement</a></span> website. 
+    <ol>
+      <li>All descriptions of “Sdn Bhd” (private limited) and “Syarikat” (company) in company names have been removed as they were spelled in different ways; e.g. “Sdn. Bhd.”, “Sendirian Berhad”, or “Sykt”, “Syk”, “Sykt.”.</li>
+      <li>Best attempts have been made to correct typos when company names were spelled differently by matching their registration numbers. However some companies did not have their registration numbers stated, or the registration numbers themselves were wrong, making the whole process of data cleaning difficult and tedious.</li>
+      <li>Names of the various government agencies have been consolidated by merging agencies into the ministries they belong to, and standardizing agency names which have been changed over time; e.g. “Kementerian Pelajaran” and “Kementerian Pendidikan”, “Kementerian Wilayah” and “Kementerian Wilayah Persekutuan dan Kesejahteraan Bandar”.</li>
+      <li>One contract was given to two companies - ROYCE PHARMA and FIDIN UNIVERSAL - but the record did not state the value of contract split between the two company.
+      </li>
+    </ol>
+  </div>
   </body>
 </html>

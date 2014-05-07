@@ -16,20 +16,20 @@
         }
 
       h2{
-        color: #ABA8A7;
+        color: #8A8A8A;
         margin-top: 4px;
         font-family:georgia,serif;
         font-weight:normal;
         }
 
       h3 {
-        font-size:20px;
+        font-size:24px;
         font-family:georgia,serif;
         color: #B81904;
           }
     
       #byline{
-        color: #ABA8A7;
+        color: #8A8A8A;
         font-family:georgia,serif;
         text-align: right;
               }
@@ -40,11 +40,26 @@
        font-size:16px;
           }
 
-      #ending 
+      #notes 
           {
-        color: #ABA8A7;
+        color: #8A8A8A;
           }
+      #barchart  {
+        float: left;
+        font-size:12px;
+        font-family:arial;
+        margin-left: 10%;
+      }
 
+      #b1{
+        margin-top: 20%;
+        float: left;
+        font-size:14px;
+      }
+
+      #table{
+        border: 1px solid #D1D1D1;
+      }
 
       .header {
     font-size:14px;

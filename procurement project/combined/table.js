@@ -1,6 +1,6 @@
 
 //google table code start here
-
+google.load('visualization', '1', {packages: ['table']});
 google.setOnLoadCallback(drawVisualization);
 
 function drawVisualization() {

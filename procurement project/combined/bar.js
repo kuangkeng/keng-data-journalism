@@ -15,7 +15,8 @@ google.load("visualization", "1", {packages:["corechart"]});
 
             var options = {
               width: 400,
-              height: 240,
+              height: 300,
+              fontSize: 14,
               vAxis: {title: "Percentage (%)"},
               seriesType: "bars",
               series: {5: {type: "line"}},
