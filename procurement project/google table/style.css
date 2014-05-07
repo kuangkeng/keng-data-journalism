@@ -3,7 +3,7 @@
             {
         width:700px;
         font-family:arial;
-        font-size:14px;
+        font-size:20px;
         margin:20px auto;
             }  
 
@@ -19,7 +19,7 @@
         color: #ABA8A7;
         margin-top: 4px;
         font-family:georgia,serif;
-        font-weight:normal;
+        font-weight:bold;
         }
 
       h3 {
@@ -38,12 +38,18 @@
           {
        font-weight: bold;
        font-size:16px;
+       color: #ABA8A7;
+          }
+      
+      #ending {
+          color: #ABA8A7;
+          font-size: 20px;
           }
 
-      #next
-          {
-        font-weight: normal;
-        font-size:20px;
+      #chart {
+        font-size: 20px;
         font-family:georgia,serif;
-        color: #B81904;
-          }
+      }
+
+
+

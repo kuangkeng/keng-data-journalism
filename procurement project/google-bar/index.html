@@ -1,0 +1,62 @@
+<html>
+      <head>
+        <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+        <script type="text/javascript">
+        google.load("visualization", "1", {packages:["corechart"]});
+        google.setOnLoadCallback(init);
+        function init(){
+              var rowData1 = [['', 'Percentage of total companies', { role: 'style' }],
+                    ['Top 100 companies', 2.38, 'F7A8AC'],
+                    ['Other companies', 97.62, 'A8D4F7']];
+    var rowData2 = [['', 'Percentage of total contracts', { role: 'style' }],
+                    ['Top 100 companies', 38.17, 'F7A8AC'],
+                    ['Other companies', 61.83, 'A8D4F7']];
+
+            // Create and populate the data tables.
+            var data = [];
+            data[0] = google.visualization.arrayToDataTable(rowData1);
+            data[1] = google.visualization.arrayToDataTable(rowData2);
+
+            var options = {
+              width: 400,
+              height: 240,
+              vAxis: {title: "Percentage (%)"},
+              seriesType: "bars",
+              series: {5: {type: "line"}},
+              legend: { position: "none" },
+              animation:{
+                duration: 1000,
+                easing: 'out'
+              },
+            };
+
+            var current = 0;
+            // Create and draw the visualization.
+            var chart = new google.visualization.ComboChart(document.getElementById('barchart'));
+            var button = document.getElementById('b1');
+            function drawChart() {
+              // Disabling the button while the chart is drawing.
+              button.disabled = true;
+              google.visualization.events.addListener(chart, 'ready',
+                  function() {
+                    button.disabled = false;
+                    button.value = 'Switch to ' + (current ? 'Tea' : 'Coffee');
+                  });
+              options['title'] = 'Percentage of total ' + (current ? 'contracts' : 'companies');
+
+              chart.draw(data[current], options);
+            }
+            drawChart();
+
+            button.onclick = function() {
+              current = 1 - current;
+              drawChart();
+            }
+        }
+        </script>
+      </head>
+      <body>
+        <button type="button" id="b1" onclick="init();">Click to see the difference</button>  
+        <div id="barchart"></div>
+      </body>
+    </html>
