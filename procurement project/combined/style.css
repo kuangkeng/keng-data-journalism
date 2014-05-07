@@ -45,9 +45,6 @@
         color: #ABA8A7;
           }
 
-      #table  {
-        border: 1px solid #D1D1D1;
-      }
 
       .header {
     font-size:14px;
@@ -63,6 +60,17 @@
       .topcell {
     text-align:center;
       }
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.x.axis path {
+  display: none;
+}
 
 .node rect {
   cursor: move;

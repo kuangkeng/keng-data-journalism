@@ -3,12 +3,8 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-    <title>Top 100 winners of open-tender government contracts</title>
-
-<!-- load d3 sankey -->
-    <script src="http://d3js.org/d3.v3.js"></script>
-    <script src="sankey.js"></script>
-
+    <title>Investigating government procurement in Malaysia</title>
+  
 <!-- load googlp table api -->
     <script type="text/javascript" src="//www.google.com/jsapi"></script>
     <script type="text/javascript">
@@ -22,7 +18,7 @@
   </head>
   <body>
 
-    <h1>Top 100 winners of open-tender government contracts</h1>
+    <h1>Top winners of open-tender government contracts</h1>
     <h2>Investigating government procurement in Malaysia</h2>
     <br>
     <br>
@@ -32,7 +28,9 @@
     <br>
     <hr width="100%" size="3" noshade="noshade" color="B81904"/>
     <br>
-    <p id="intro">In a first-of-its-kind analysis on the public record of Malaysian federal government procurements believed to be made from year 2005 to early 2014, it was found that the top 100 companies that received the highest value of contracts given through open tender, dominated 38 percent of the total contract value.</p><br>
+    <p id="intro">In a first-of-its-kind analysis on the public record of Malaysian federal government procurement, it was found that the top 100 companies that received the highest value of open-tender contracts believed to be given out from year 2005 to early 2014    
+
+      dominated 38 percent of the total contract value.</p><br>
 
     There were a total of 8,886 open-tender contracts published on <a href=http://myprocurement.treasury.gov.my/index.php/en/list-keputusan-tender target=_blank>MyProcurement</a>, the government procurement website, until Mac 6, 2014, the day when the data used for this report was collected.<p>
 
@@ -42,6 +40,14 @@
 
     On top of the list is Primabumi Sdn Bhd, a drug supplier that secured RM876,236,864 from a total of 202 contracts mostly given by the Health Ministry and the Higher Education Ministry.<p><br>
 
+    <!-- load d3 bar chart -->
+    
+    <script src="bar.js"></script>
+    <button type="button" id="b1" onclick="init();">Click to see the difference</button>  
+        <div id="barchart"></div>
+    
+
+    <br>
     <h3>Where have the RM1.7 billion contracts gone?</h3>
 
     The website launched in 2010 as part of the Government Transformation Programme (GTP) was found to contain numerous errors including incomplete details and typos.<p>
@@ -52,7 +58,6 @@
 
     </p>
     <br>
-
 
 <!-- load google table -->
     <div id="table"></div>
@@ -76,12 +81,11 @@
 
   <div id="ending">This chart shows where the contracts were from. Each line represents a contract and the thickness represents the value of the contract. The number next to each ministry label is the percentage of total contract value given to the 100 companies.</div><br>
 
-<!-- load sankey chart -->
+<!-- load d3 sankey chart -->
   <div id="chart"></div>
-  <!-- load d3 sankey -->
-    <script src="http://d3js.org/d3.v3.js"></script>
-    <script src="sankey.js"></script>
-    <script src="script.js"></script>
+  <script src="http://d3js.org/d3.v3.js"></script>
+  <script src="sankey.js"></script>
+  <script src="chart.js"></script>
 
   <h3>Data cleaning</h3>
 
