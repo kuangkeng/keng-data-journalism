@@ -64,8 +64,9 @@
       .header {
     font-size:14px;
     border: 1px solid #D1D1D1;
-    background-color: #E9F4F5;
-    text-align:center;
+    background-color: #3F9AF2;
+    color:#FFFFFF;
+
   }
       .total  {
     font-weight: bold;

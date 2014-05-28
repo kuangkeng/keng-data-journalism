@@ -3,10 +3,10 @@ google.load("visualization", "1", {packages:["corechart"]});
         function init(){
               var rowData1 = [['', 'Percentage of total companies', { role: 'style' }],
                     ['Top 100 companies', 2.38, 'F7A8AC'],
-                    ['Other companies', 97.62, 'A8D4F7']];
+                    ['Other companies', 97.62, '3F9AF2']];
     var rowData2 = [['', 'Percentage of total contract value', { role: 'style' }],
                     ['Top 100 companies', 38.17, 'F7A8AC'],
-                    ['Other companies', 61.83, 'A8D4F7']];
+                    ['Other companies', 61.83, '3F9AF2']];
 
             // Create and populate the data tables.
             var data = [];
