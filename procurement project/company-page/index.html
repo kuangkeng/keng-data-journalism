@@ -66,16 +66,42 @@ d3.csv("data/" + company + ".csv", function(data) {
         .enter()
         .append("tr");
 
+    rows.append("td")
+      .text(function(d) { return d.Company; });
+
+    rows.append("td")
+      .text(function(d) { return d.Tender; })
+      .style("background-color","yellow");
+
+    rows.append("td")
+      .text(function(d) { return d.TenderNo; });
+
+    rows.append("td")
+      .text(function(d) { return d.ProcurementCategory; });
+
+    rows.append("td")
+      .text(function(d) { return d.GovtAgency; });
+
+    rows.append("td")
+      .text(function(d) { return d.RegNo; });
+
+    rows.append("td")
+      .text(function(d) { return d.MOFRegNo; });
+
+    rows.append("td")
+      .text(function(d) { return d.Value; });
+
+
     // create a cell in each row for each column
-    var cells = rows.selectAll("td")
-        .data(function(row) {
-            return columns.map(function(column) {
-                return {column: column, value: row[column]};
-            });
-        })
-        .enter()
-        .append("td")
-            .text(function(d) { return d.value; });
+   // var cells = rows.selectAll("td")
+   //     .data(function(row) {
+   //         return columns.map(function(column) {
+   //             return {column: column, value: row[column]};
+   //         });
+   //     })
+   //     .enter()
+   //     .append("td")
+   //         .text(function(d) { return d.value; });
 });
 
 
