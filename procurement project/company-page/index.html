@@ -23,6 +23,14 @@
 
 </style>
 
+<h1>Keng loading in a table based on the table id you put in the hash.</h1>
+
+<h5 class="Chart title">Showing table for <span class="hash-name">Monkeys</span></h5>
+
+<table class="example-table">
+
+</table>
+
 
 
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
@@ -30,6 +38,8 @@
 <script type="text/javascript">
 
 var company = getTeamIdFromHash();
+d3.select(".hash-name").text(company);
+console.log(company);
 
 d3.csv("data/" + company + ".csv", function(data) {
 
@@ -80,10 +90,3 @@ function getTeamIdFromHash() {
 
 </script>
 
-<h1>Keng loading in a table based on the table id you put in the hash.</h1>
-
-<h5 class="Chart title">Showing table for <span class="hash-name">Monkeys</span></h5>
-
-<table class="example-table">
-
-</table>
