@@ -1,4 +1,2 @@
-keng-demo
+Creating new window with new table based on company ID
 =========
-
-a little demo for a student
