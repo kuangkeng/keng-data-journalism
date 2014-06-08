@@ -5,21 +5,36 @@
     body {
         width:800px;
         margin:10px auto;
-        font-family:arial;
+        font-family:arial, helvetica;
         font-size:12px;
     }
 
-    td, th { border: 1px #ccc solid; 
-             font-size:10px;
+    td, th { border: 1px #EEEEEE solid; 
+             font-size:11px;
+             padding: 5px 8px 5px 8px;
             }
+
+    td {}
 
     table { border-collapse: collapse; }
 
     tr:nth-child(even) {background-color: #FAFAFA;}
 
-    th { background-color: #3F9AF2;
+    th {font-size: 12px; 
+        background-color: #3F9AF2;
          color:#FFFFFF;
         }
+
+    .columnNo,.columnTenderNo,.columnProcurementCategory,.columnGovtAgency,.columnPerctvalue,.columnRegno,.columnMOFRegNo,.columnTotalvalue,.columnTotaltender
+    {
+        text-align: center;
+    }
+
+    .columnValue
+    {
+        text-align: right;
+    }
+
 
 </style>
 
@@ -27,11 +42,9 @@
 
 <h5 class="Chart title">Showing table for <span class="hash-name">Monkeys</span></h5>
 
-<table class="example-table">
-
-</table>
-
-
+<table class="tableCompany"></table>
+<br><br>
+<table class="tableTender"></table>
 
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 
@@ -41,16 +54,66 @@ var company = getTeamIdFromHash();
 d3.select(".hash-name").text(company);
 console.log(company);
 
+d3.csv("data/" + company + "profile" + ".csv", function(data) {
+    console.log("data", data);
+
+    var columns = ["Company", "Total Tender Value (RM)", "Percentage of Total Contract Value", "No. of Contracts", "Company Reg. No.", "Company Reg. No. with MOF"];
+
+    var table = d3.select(".tableCompany").append("table"),
+        thead = table.append("thead"),
+        tbody = table.append("tbody"),
+        formatValue = d3.format("0,000");
+
+    thead.append("tr")
+        .selectAll("th")
+        .data(columns)
+        .enter()
+        .append("th")
+            .text(function(column) { return column; });
+
+    var rows = tbody.selectAll("tr")
+        .data(data)
+        .enter()
+        .append("tr");
+
+    rows.append("td")
+      .text(function(d) { return d.Company; })
+      .attr("class","columnCompany");
+
+    rows.append("td")
+      .text(function(d) { return formatValue(d.Totalvalue); })
+      .attr("class","columnTotalvalue");
+
+    rows.append("td")
+      .text(function(d) { return d.Perctvalue; })
+      .attr("class","columnPerctvalue");
+
+    rows.append("td")
+      .text(function(d) { return d.Totaltender; })
+      .attr("class","columnTotaltender");
+
+    rows.append("td")
+      .text(function(d) { return d.Regno; })
+      .attr("class","columnRegno");
+
+    rows.append("td")
+      .text(function(d) { return d.MOFRegNo; })
+      .attr("class","columnMOFRegNo");
+
+});
+
+
 d3.csv("data/" + company + ".csv", function(data) {
 
     console.log("data", data);
     // the columns you'd like to display
-    var columns = ["Company", "Tender Details", "Tender No.", "Procurement Category", "Govt Agency", 
-    "Reg. No.", "MOF Reg. No.", "Value(RM)"];
+    var columns = ["", "Tender Details", "Tender No.", "Procurement Category", "Govt Agency", 
+    "Value (RM)"];
 
-    var table = d3.select(".example-table").append("table"),
+    var table = d3.select(".tableTender").append("table"),
         thead = table.append("thead"),
-        tbody = table.append("tbody");
+        tbody = table.append("tbody"),
+        formatValue = d3.format("0,000");
 
     // append the header row
     thead.append("tr")
@@ -67,30 +130,29 @@ d3.csv("data/" + company + ".csv", function(data) {
         .append("tr");
 
     rows.append("td")
-      .text(function(d) { return d.Company; });
+      .text(function(d, i)
+            { return i+1 } )
+      .attr("class","columnNo");
 
     rows.append("td")
       .text(function(d) { return d.Tender; })
-      .style("background-color","yellow");
+      .attr("class","columnTender");
 
     rows.append("td")
-      .text(function(d) { return d.TenderNo; });
+      .text(function(d) { return d.TenderNo; })
+      .attr("class","columnTenderNo");
 
     rows.append("td")
-      .text(function(d) { return d.ProcurementCategory; });
+      .text(function(d) { return d.ProcurementCategory; })
+      .attr("class","columnProcurementCategory");
 
     rows.append("td")
-      .text(function(d) { return d.GovtAgency; });
+      .text(function(d) { return d.GovtAgency; })
+      .attr("class","columnGovtAgency");
 
     rows.append("td")
-      .text(function(d) { return d.RegNo; });
-
-    rows.append("td")
-      .text(function(d) { return d.MOFRegNo; });
-
-    rows.append("td")
-      .text(function(d) { return d.Value; });
-
+      .text(function(d) { return formatValue(d.Value); })
+      .attr("class","columnValue");
 
     // create a cell in each row for each column
    // var cells = rows.selectAll("td")
