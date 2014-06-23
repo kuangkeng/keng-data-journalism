@@ -10,7 +10,7 @@ function drawVisualization() {
       // Create and populate the data table.
       var data = google.visualization.arrayToDataTable([
 
-  ['<p class=topcell>Company','<p class=topcell>Value (RM)', '<p class=topcell>Percentage of total contract value', '<p class=topcell>No. of contract', '<p class=topcell>Company registration no.', '<p class=topcell>Company registration no. with MOF'],
+  ['<p class=topcell>Company','<p class=topcell>Value (RM)', '<p class=topcell>Percentage of Total Contract Value', '<p class=topcell>No. of Tenders', '<p class=topcell>Company Reg. No.', '<p class=topcell>Company Reg. No. with MOF'],
 
   ["PRIMABUMI",876236864,2.74,202,"24896-H","357-40009610"],
   ["INAI KIARA - HWA CHI JV",808330222,2.52,1,"WAIVED",""],

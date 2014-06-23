@@ -1,3 +1,3 @@
-Contract,Percentage of total companies,Percentage of total contracts
-Top 100 companies,2.38,38.17
-Other companies,97.62,61.83
+company,pctCompany,pctContract
+Top 100 companies,0.0238,0.3817
+Other companies,0.9762,0.6183
