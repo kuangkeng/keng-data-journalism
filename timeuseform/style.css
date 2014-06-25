@@ -1,0 +1,14 @@
+body 
+            {
+        width:700px;
+        font-family:arial;
+        font-size:16px;
+        margin:20px auto;
+            }  
+
+h1{
+      text-align: center;
+      font-family:georgia,serif;
+      font-weight:bold;
+      font-size: 30px;
+        }

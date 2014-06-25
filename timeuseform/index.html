@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Time Use Survey 2014</title>
+  <script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+ 
+<h1>Do you sleep, work and play more than fellow Americans?</h1>
+<br>
+<hr width="100%" size="3" noshade="noshade" color="#8A8A8A"/>
+<br>
+<form>
+<form name="myForm" id="workForm" method="get" action="#">
+Your gender:<br>
+<SELECT NAME="gender" SIZE="1" id="inputgender">
+<OPTION>Male
+<OPTION>Female
+</SELECT>
+<br><br>
+Your age:<br>
+<SELECT NAME="age" SIZE="1" id="inputage">
+<OPTION>15 to 19
+<OPTION>20 to 24
+<OPTION>25 to 34
+<OPTION>35 to 44
+<OPTION>45 to 54
+<OPTION>55 to 64
+<OPTION>65 to 74
+<OPTION>75 and above
+</SELECT>
+<br><br>
+1. On average, how much you sleep per day?<br>
+<input type="text" name="sleep" value=" " id="inputsleep"/><br><br>
+<span id="sleepbox"></span><br><br>
+
+2. On average, how much time you work on your workday (excludes travel related to work)?<br>
+<input type="text" name="work" value=" " id="inputwork"/> and you are working 
+<SELECT NAME="workstatus" SIZE="1" id="inputworkstatus">
+<OPTION>Full-time
+<OPTION>Part-time
+</SELECT>
+<br><br>
+<span id="workbox"></span>
+<br><br>
+<input type="submit" value="Submit"/>
+<INPUT TYPE="reset">
+</form>
+
+ 
+<script type="text/javascript" src="script.js"></script>
+ 
+</body>
+</html>
