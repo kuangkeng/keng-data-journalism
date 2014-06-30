@@ -1,0 +1,49 @@
+<head>
+<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+</head>
+
+<body>
+
+<form name="myForm" id="workForm" method="get" action="#">
+Your gender:<br>
+<SELECT NAME="gender" SIZE="1" id="inputgender">
+<OPTION>Male
+<OPTION>Female
+</SELECT>
+<br><br>
+
+Your work status:<br>
+<SELECT NAME="workstatus" SIZE="1" id="inputworkstatus">
+<OPTION>Full-time
+<OPTION>Part-time
+</SELECT>
+<br><br>
+<input type="submit" value="Submit"/>
+<INPUT TYPE="reset">
+</form>
+
+<span id="outputbox"></span>
+
+</body>
+ 
+<script type="text/javascript">
+
+var data = [{"gender":"male","fulltime":10,"parttime":20},
+{"gender":"female","fulltime":30,"parttime":40}];
+
+$(document).ready(function(){
+
+$("form").submit(function( event ) {
+	if($('#inputgender').val()=="Male"){var gender=0;}
+	if($('#inputgender').val()=="Female"){var gender=1;}
+	if($('#inputworkstatus').val()=="Full-time"){var workstatus="fulltime";}
+	if($('#inputworkstatus').val()=="Part-time"){var workstatus="parttime";}
+	console.log(data[gender].workstatus);
+	$("#outputbox").text("Your number is " + data[gender].workstatus + " per day.");
+
+event.preventDefault();	
+	});
+
+});
+
+</script>

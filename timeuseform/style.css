@@ -12,3 +12,17 @@ h1{
       font-weight:bold;
       font-size: 30px;
         }
+
+.more {
+  background-color: #D9534F;
+  color:white;
+  border-radius: 5px;
+  padding:10px 16px 10px 16px;
+}
+
+.less {
+  background-color: #5CB85C;
+  color:white;
+  border-radius: 5px;
+  padding:10px 16px 10px 16px;
+}
