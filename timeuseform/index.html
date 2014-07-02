@@ -3,7 +3,8 @@
 <head>
   <meta charset="utf-8">
   <title>Time Use Survey 2014</title>
-  <script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.12.0/jquery.validate.min.js"></script>
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
@@ -12,15 +13,14 @@
 <br>
 <hr width="100%" size="3" noshade="noshade" color="#8A8A8A"/>
 <br>
-<form>
-<form name="myForm" id="workForm" method="get" action="#">
+<form name="myForm" id="timeuseform" method="get" action="#">
 
 1. On average, how much you sleep per day?<br>
-<input type="text" name="sleep" value=" " id="inputsleep"/><br><br>
+<input type="text" name="sleep" value="" id="inputsleep"/><br><br>
 <div id="sleepbox"></div><br><br>
 
 2. On average, how much time you work on your workday (excludes travel related to work)?<br>
-<input type="text" name="work" value=" " id="inputwork"/> and you are working 
+<input type="text" name="work" value="" id="inputwork"/><br> and you are working 
 <SELECT NAME="workstatus" SIZE="1" id="inputworkstatus">
 <OPTION>full-time
 <OPTION>part-time
@@ -28,29 +28,29 @@
 <div id="workbox"></div><br><br>
 
 3. On average, how much time you spend on shopping per day (done in person, via telephone, over the Internet, at home, or in a store)?<br>
-<input type="text" name="shopping" value=" " id="inputshop"/><br><br>
+<input type="text" name="shop" value="" id="inputshop"/><br><br>
 <div id="shopbox"></div><br><br>
 
 4. On average, how much time you spend on watching TV per weekend day?<br>
-<input type="text" name="tv" value=" " id="inputtv"/><br><br>
+<input type="text" name="tv" value="" id="inputtv"/><br><br>
 <div id="tvbox"></div><br><br>
 
 5. On average, how much time you spend on playing games and computer use for leisure per weekend day?<br>
-<input type="text" name="video" value=" " id="inputvideo"/><br><br>
+<input type="text" name="video" value="" id="inputvideo"/><br><br>
 <div id="videobox"></div><br><br>
 
 6. On average, how much time you spend on sports, exercise and recreation per weekend day?<br>
-<input type="text" name="sports" value=" " id="inputsports"/><br><br>
+<input type="text" name="sports" value="" id="inputsports"/><br><br>
 <div id="sportsbox"></div><br><br>
 
-Your gender:<br>
-<SELECT NAME="gender" SIZE="1" id="inputgender">
+Your gender:
+<SELECT name="gender" SIZE="1" id="inputgender">
 <OPTION>male
 <OPTION>female
 </SELECT><br><br>
 
-Your age:<br>
-<SELECT NAME="age" SIZE="1" id="inputage">
+Your age:
+<SELECT name="age" SIZE="1" id="inputage">
 <OPTION>15 to 19
 <OPTION>20 to 24
 <OPTION>25 to 34
@@ -66,7 +66,7 @@ Your age:<br>
 </form>
 
  
-<script type="text/javascript" src="script2.js"></script>
+<script type="text/javascript" src="script3.js"></script>
  
 </body>
 </html>
