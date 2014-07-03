@@ -33,3 +33,22 @@ label.error {
     font-size:small;
     color:#FA7A7A;
 }
+
+.positive {
+  fill: #D9534F;
+}
+
+.negative {
+  fill: #5CB85C;
+}
+
+.axis text {
+  font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}

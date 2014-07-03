@@ -1,0 +1,56 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+    var data1 = new google.visualization.DataTable();
+    data1.addColumn('string', 'Activity');
+    data1.addColumn('number', 'Percentage');
+    data1.addColumn({'type': 'string', 'role': 'tooltip', 'p': {'html': true}});
+    data1.addRows([
+          ['Sleep',  3, 'tootip<br>tooltip'],
+          ['Work',  16, 'tooltip 2'],
+          ['Shop',  50, 'tooltip 3'],
+          ['Watch TV',  -20, 'tooltip 4'],
+          ['Computer', 8, 'tooltip 5'],
+          ['Workout', -10, 'tooltip 6']
+    ]);
+
+    data1.setColumnProperty(2, 'role', 'tooltip');
+
+    var view = new google.visualization.DataView(data1);
+    view.setColumns([0, {
+        type: 'number',
+        label: 'Percentage',
+        calc: function (dt, row) {
+            return (dt.getValue(row, 1) < 0) ? dt.getValue(row, 1) : null;
+        }
+    },2, {
+        type: 'number',
+        label: 'Percentage',
+        calc: function (dt, row) {
+            return (dt.getValue(row, 1) > 0) ? dt.getValue(row, 1) : null;
+        }
+    },2,   
+
+    ]);
+    
+    var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+    chart.draw(view, {
+        legend: 'none',
+        colors: ["#5CB85C", "#D9534F"],
+        title: 'Your result',
+        isStacked: true,
+        tooltip: {isHtml: true}
+    });
+
+  } 
+    </script>
+  </head>
+  <body>
+    <div id="chart_div" style="width: 900px; height: 500px;"></div>
+  </body>
+</html>
