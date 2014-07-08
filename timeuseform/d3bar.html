@@ -1,5 +1,9 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
+<meta property="og:url" content="http://samples.ogp.me/136756249803614" /> 
+<meta property="og:title" content="Chocolate Pecan Pie" />
+<meta property="og:description" content="This pie is delicious!" /> 
+<meta property="og:image" content="https://fbcdn-dragon-a.akamaihd.net/hphotos-ak-prn1/851565_496755187057665_544240989_n.jpg" /> 
 <title>Bar Chart with Negative Values</title>
 <style>
 
@@ -28,9 +32,15 @@
 <body>
 <div id="barbox"></div>
 <div id="barbox2"></div>
+<br><br>
+<button>This is a button</button>
+<br><br>
+<div id="fb-root"></div>
 </body>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <script src="d3-tipsy.js" charset="utf-8"></script>
+<script src="http://connect.facebook.net/en_US/all.js"></script>
 <script>
 
 var dataset = [{"name":"Sleep","value":0.03},
@@ -247,6 +257,25 @@ svg.selectAll("text.name")
      })
      .attr("dy", ".36em")
      .attr({"fill":"black","font-family":"sans-serif", "font-size":10});
+
+
+
+$( "button" ).click(function() {
+  
+  FB.ui({
+    display: 'popup',
+    method: 'share_open_graph',
+    action_type: 'og.likes',
+    action_properties: JSON.stringify({
+        object:'https://developers.facebook.com/docs/',
+    })
+  }, function(response){});
+
+});
+
+
+  
+
 
 
 </script>

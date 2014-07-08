@@ -1,4 +1,4 @@
-//$("#textbox").html("Hello <b>world</b>!");
+$("#message, #workboxmore, #workboxless, #sleepboxmore, #sleepboxless, #shopboxmore, #shopboxless, #tvboxmore, #tvboxless, #videoboxmore, #videoboxless, #sportsboxmore, #sportsboxless, h2").hide();
 
 var avgsleep = 8.74;
 
@@ -60,27 +60,27 @@ $(document).ready(function(){
 		messages: {
                     sleep: {
                         required: "Please answer this question",
-                        number: "Your answer must be a number with maximum 1 decimal point"
+                        number: "Must be a number with maximum 2 decimal places"
                     },
                     work: {
                         required: "Please answer this question",
-                        number: "Your answer must be a number with maximum 1 decimal point"
+                        number: "Must be a number with maximum 2 decimal places"
                     },
                     shop: {
                         required: "Please answer this question",
-                        number: "Your answer must be a number with maximum 1 decimal point"
+                        number: "Must be a number with maximum 2 decimal places"
                     },
                     tv: {
                         required: "Please answer this question",
-                        number: "Your answer must be a number with maximum 1 decimal point"
+                        number: "Must be a number with maximum 2 decimal places"
                     },
                     video: {
                         required: "Please answer this question",
-                        number: "Your answer must be a number with maximum 1 decimal point"
+                        number: "Must be a number with maximum 2 decimal places"
                     },
                     sports: {
                         required: "Please answer this question",
-                        number: "Your answer must be a number with maximum 1 decimal point"
+                        number: "Must be a number with maximum 2 decimal places"
                     }
                 },
 //display error messages style if input cannot be validated
@@ -137,12 +137,16 @@ submitHandler: function(form) {
 			sleep = Math.round(sleepfull),
 			sleepabs = Math.abs(sleep);
 		if(sleep>0){
-			$("#sleepbox").text("You sleep too much! You sleep " + sleepabs + "% more than average Americans who sleep 8.74 hours per day.");
-			$("#sleepbox").addClass("more");
+			$("#sleepboxmore").show();
+			$("#sleepnomore").text(sleepabs+"% more");
+			$("#sleepavgnomore").text(avgsleep);
+			$("#sleepnomore").addClass("more");
 		}
 		else{
-			$("#sleepbox").text("You sleep too little! You sleep " + sleepabs + "% less than average Americans who sleep 8.74 hours per day.");
-			$("#sleepbox").addClass("less");
+			$("#sleepboxless").show();
+			$("#sleepnoless").text(sleepabs+"% less");
+			$("#sleepavgnoless").text(avgsleep);
+			$("#sleepnoless").addClass("less");
 		}
 		console.log("question 1 answer: " + sleepabs);
 
@@ -151,12 +155,20 @@ submitHandler: function(form) {
 			work = Math.round(workfull),
 			workabs = Math.abs(work);
 			if(work>0){
-				$("#workbox").text("You work too much! You work " + workabs + "% more than average " + inputgender + " " + inputworkstatus + " Americans who work " + avgwork + " hours per day.");
-				$("#workbox").addClass("more");
+				$("#workboxmore").show();
+				$("#worknomore").text(workabs+"% more");
+				$("#workavgnomore").text(avgwork);
+				$("#workgendermore").text(inputgender);
+				$("#workstatusmore").text(inputworkstatus);
+				$("#worknomore").addClass("more");
 			}
 			else{
-				$("#workbox").text("You work too little! You work " + workabs + "% less than average " + inputgender + " " + inputworkstatus + " Americans who work " + avgwork + " hours per day.");
-				$("#workbox").addClass("less");
+				$("#workboxless").show();
+				$("#worknoless").text(workabs+"% less");
+				$("#workavgnoless").text(avgwork);
+				$("#workgenderless").text(inputgender);
+				$("#workstatusless").text(inputworkstatus);
+				$("#worknoless").addClass("less");
 			}
 			console.log("question 2 answer: " + workabs);
 
@@ -165,12 +177,20 @@ submitHandler: function(form) {
 		shop = Math.round(shopfull),
 		shopabs = Math.abs(shop);
 		if(shop>0){
-			$("#shopbox").text("You shop too much! You shop " + shopabs + "% more than average " + inputgender + " " + inputage + " Americans who shop " + avgshop + " hours per day.");
-			$("#shopbox").addClass("more");
+			$("#shopboxmore").show();
+			$("#shopnomore").text(shopabs+"% more");
+			$("#shopavgnomore").text(avgshop);
+			$("#shopgendermore").text(inputgender);
+			$("#shopagemore").text(inputage);
+			$("#shopnomore").addClass("more");
 		}
 		else{
-			$("#shopbox").text("You shop too little! You shop " + shopabs + "% less than average " + inputgender + " " + inputage + " Americans who shop " + avgshop + " hours per day.");
-			$("#shopbox").addClass("less");
+			$("#shopboxless").show();
+			$("#shopnoless").text(shopabs+"% less");
+			$("#shopavgnoless").text(avgshop);
+			$("#shopgenderless").text(inputgender);
+			$("#shopageless").text(inputage);
+			$("#shopnoless").addClass("less");
 		}
 		console.log("question 3 answer: " + shopabs);
 		
@@ -181,12 +201,18 @@ submitHandler: function(form) {
 		tv = Math.round(tvfull),
 		tvabs = Math.abs(tv);
 	if(tv>0){
-		$("#tvbox").text("You watch too much TV! You watch " + tvabs + "% more than average " + inputage + " Americans who watch " + avgtv + " hours per weekend day.");
-		$("#tvbox").addClass("more");
+		$("#tvboxmore").show();
+		$("#tvnomore").text(tvabs+"% more");
+		$("#tvavgnomore").text(avgtv);
+		$("#tvagemore").text(inputage);
+		$("#tvnomore").addClass("more");
 		}
 	else{
-		$("#tvbox").text("You watch too little TV! You watch " + tvabs + "% less than average " + inputage + " Americans who watch " + avgtv + " hours per weekend day.");
-		$("#tvbox").addClass("less");
+		$("#tvboxless").show();
+		$("#tvnoless").text(tvabs+"% less");
+		$("#tvavgnoless").text(avgtv);
+		$("#tvageless").text(inputage);
+		$("#tvnoless").addClass("less");
 		}
 	console.log("question 4 answer: " + tvabs);
 
@@ -196,12 +222,18 @@ submitHandler: function(form) {
 		video = Math.round(videofull),
 		videoabs = Math.abs(video);
 	if(video>0){
-		$("#videobox").text("You use too much computer for leisure! You use computer for leisure " + videoabs + "% more than average " + inputage + " Americans who use " + avgvideo + " hours of computer for leisure per weekend day.");
-		$("#videobox").addClass("more");
+		$("#videoboxmore").show();
+		$("#videonomore").text(videoabs+"% more");
+		$("#videoavgnomore").text(avgvideo);
+		$("#videoagemore").text(inputage);
+		$("#videonomore").addClass("more");
 		}
 	else{
-		$("#videobox").text("You use too little computer for leisure! You use computer for leisure " + videoabs + "% less than average " + inputage + " Americans who use " + avgvideo + " hours of computer for leisure per weekend day.");
-		$("#videobox").addClass("less");
+		$("#videoboxless").show();
+		$("#videonoless").text(videoabs+"% less");
+		$("#videoavgnoless").text(avgvideo);
+		$("#videoageless").text(inputage);
+		$("#videonoless").addClass("less");
 		}
 	console.log("question 5 answer: " + videoabs);
 
@@ -211,31 +243,37 @@ submitHandler: function(form) {
 		sports = Math.round(sportsfull),
 		sportsabs = Math.abs(sports);
 	if(sports>0){
-		$("#sportsbox").text("You exercise too much! You exercise " + sportsabs + "% more than average " + inputage + " Americans who exercise " + avgsports + " hours per weekend day.");
-		$("#sportsbox").addClass("more");
+		$("#sportsboxmore").show();
+		$("#sportsnomore").text(sportsabs+"% more");
+		$("#sportsavgnomore").text(avgsports);
+		$("#sportsagemore").text(inputage);
+		$("#sportsnomore").addClass("more");
 		}
 	else{
-		$("#sportsbox").text("You exercise too little! You exercise " + sportsabs + "% less than average " + inputage + " Americans who exercise " + avgsports + " hours per weekend day.");
-		$("#sportsbox").addClass("less");
+		$("#sportsboxless").show();
+		$("#sportsnoless").text(sportsabs+"% less");
+		$("#sportsavgnoless").text(avgsports);
+		$("#sportsageless").text(inputage);
+		$("#sportsnoless").addClass("less");
 		}
 	console.log("question 6 answer: " + sportsabs);
 
 //create a new array based on calculation of input (convert to percentage)
 
 	var dataset = [
-		{"name":"Sleep","value": sleep/100},
-		{"name":"Work","value": work/100},
-		{"name":"Shop","value": shop/100},
-		{"name":"Watch TV","value": tv/100},
-		{"name":"Computer","value": video/100},
-		{"name":"Workout","value": sports/100}
+		{"name":"Sleep","value": sleep/100, "label": sleep, "tooltip": "Compared with average Americans" + " (" +avgsleep+" hours)"},
+		{"name":"Work","value": work/100, "label": work, "tooltip": "Compared with " + inputgender + " Americans with " + inputworkstatus + " employment" + " (" +avgwork+" hours)"},
+		{"name":"Shop","value": shop/100, "label": shop, "tooltip": "Compared with " + inputgender + " Americans aged " + inputage + " (" +avgshop+" hours)"},
+		{"name":"Watch TV","value": tv/100, "label": tv, "tooltip": "Compared with Americans aged " + inputage + " (" +avgtv+" hours)"},
+		{"name":"Computer","value": video/100, "label": video, "tooltip": "Compared with Americans aged " + inputage + " (" +avgvideo+" hours)"},
+		{"name":"Workout","value": sports/100, "label": sports, "tooltip": "Compared with Americans aged " + inputage + " (" +avgsports+" hours)"}
 		];
 	console.log (dataset[1].value);
 	
-//code for d3 bar chart starts here
+//code for first d3 bar chart starts here	
 
-var margin = {top: 30, right: 10, bottom: 10, left: 10},
-    width = 600 - margin.left - margin.right,
+var margin = {top: 30, right: 50, bottom: 10, left: 140},
+    width = 540 - margin.left - margin.right,
     height = 400 - margin.top - margin.bottom;
 
 var x = d3.scale.linear()
@@ -248,8 +286,14 @@ var formatAsPercentage = d3.format("10%");
 
 var xAxis = d3.svg.axis()
     .scale(x)
-    .orient("top")
-    .tickFormat(formatAsPercentage);
+    .tickFormat(formatAsPercentage)
+    .ticks(10)
+    .orient("top");
+
+var tip = d3.tip()
+  .attr('class', 'd3-tip')
+  .offset([-10, 0])
+  .html(function(d) {return d.tooltip;});
 
 var svg = d3.select("#barbox").append("svg")
     .attr("width", width + margin.left + margin.right)
@@ -257,46 +301,85 @@ var svg = d3.select("#barbox").append("svg")
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
+svg.call(tip);
+
   x.domain(d3.extent(dataset, function(d) { return d.value; })).nice();
   y.domain(dataset.map(function(d) { return d.name; }));
 
+var xd = x.domain(d3.extent(dataset, function(d) { return d.value; })).nice(),
+    yd = y.domain(dataset.map(function(d) { return d.name; }));
+
+
   svg.selectAll(".bar")
       .data(dataset)
-    .enter().append("rect")
-      .attr("class", function(d) { return d.value < 0 ? "negative" : "positive"; })
+      .enter().append("rect")
+      .attr("class", function(d) { return d.value < 0 ? "bar negative" : "bar positive"; })
       .attr("x", function(d) { return x(Math.min(0, d.value)); })
       .attr("y", function(d) { return y(d.name); })
       .attr("width", function(d) { return Math.abs(x(d.value) - x(0)); })
-      .attr("height", y.rangeBand());
+      .attr("height", y.rangeBand())
+      .on('mouseover', tip.show)
+      .on('mouseout', tip.hide);
+
+  svg.append("g")
+      .attr("class", "y axis")
+      .append("line")
+      .attr("x1", x(0))
+      .attr("x2", x(0))
+      .attr("y2", height);
 
   svg.append("g")
       .attr("class", "x axis")
       .call(xAxis);
 
-  svg.append("g")
-      .attr("class", "y axis")
-    .append("line")
-      .attr("x1", x(0))
-      .attr("x2", x(0))
-      .attr("y2", height);
+svg.selectAll("text.name")
+  .data(dataset)
+  .enter()
+  .append("text")
+  .text(function(d){return d.name;})
+  .attr("y", function(d) { return y(d.name)+ y.rangeBand()/2; })
+  .attr("x", -50)
+  .attr('stroke', 'none')
+  .attr('fill', 'black')
+  .attr("dy", ".35em")
+  .attr('text-anchor', 'end')
+  .attr({"fill":"black","font-family":"Arimo", "font-size":15});
+  
 
-  svg.selectAll("text").data(dataset).enter().append("text")
-  .attr("x", function(d) { return x((d[1].value) - x(0)); })
-  .attr("y", function(d) { return y(d.name); })
-  .attr("dx", 3) // padding-left
-  .attr("dy", ".35em") // vertical-align: middle
-  .attr("text-anchor", "start") // text-align: right
-  .attr("fill", "red")
-  .attr("stroke", "none")
-  .text(function(d) { return d[1].value});
+  svg.selectAll("text.value")
+     .data(dataset)
+     .enter()
+     .append("text")
+     .text(function(d){return d.label + "%";})
+     .attr("x", function(d) { 
+        if (d.value <= 0) {
+          return x(Math.min(0, d.value));
+        }
+        else {
+          return x(Math.min(0, d.value)) + Math.abs(x(d.value)-x(0));
+        }
+        })
+     .attr("y", function(d) { return y(d.name)+ y.rangeBand()/2; })
+     .attr("text-anchor", function(d){
+      if (d.value <= 0) {return "end"}
+      else {return "left"}
+     })
+     .attr("dx", function(d){
+      if (d.value <= 0) {return -2}
+      else {return 2}
+     })
+     .attr("dy", ".36em")
+     .attr({"fill":"black","font-family":"Arimo", "font-size":14});
+  
+function type(d) {
+  d.value = +d.value;
+  return d;}
 
-	function type(d) {
-  	d.value = +d.value;
-  	return d;
-		};		
+$("#message, h2").show();
+$("#button").hide();
 
+   }
 
-    }
 
 });
 
