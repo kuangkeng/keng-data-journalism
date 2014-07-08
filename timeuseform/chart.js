@@ -1,4 +1,4 @@
-$(document).ready(function(){
+function init (){
 
 //form validation using jquery validation plugin
 	 $("#timeuseform").validate({
@@ -56,10 +56,21 @@ submitHandler: function(form) {
 				$("#workbox").text("You work too little!");
 				$("#workbox").addClass("less");
 			}
-	
+
+
+		
+	}	
+    
+});
+
+};
+
 //code for google bar chart starts here
-google.load("visualization", "1", {packages:["corechart"]});
-google.setOnLoadCallback(drawChart);
+
+
+
+	google.load("visualization", "1", {packages:["corechart"], callback: init});
+	google.setOnLoadCallback(drawChart);
 
       function drawChart() {
         var data1 = google.visualization.arrayToDataTable([
@@ -77,12 +88,4 @@ google.setOnLoadCallback(drawChart);
 
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
         chart.draw(data1, options);
-        }
-		
-	}	
-    
-});
-
-});
-
-
+        };

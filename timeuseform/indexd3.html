@@ -3,10 +3,11 @@
 <head>
   <meta charset="utf-8">
   <title>Time Use Survey 2014</title>
+  <link href='http://fonts.googleapis.com/css?family=Arimo:400,700|Roboto' rel='stylesheet' type='text/css'>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.12.0/jquery.validate.min.js"></script>
-  <script type="text/javascript" src="https://www.google.com/jsapi"></script>
   <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+  <script src="d3-tipsy.js" charset="utf-8"></script>
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
@@ -14,63 +15,90 @@
 <h1>Do you sleep, work and play more than fellow Americans?</h1>
 <br>
 <hr width="100%" size="3" noshade="noshade" color="#8A8A8A"/>
-<br>
+<br><br>
+<div id="caution">Please provide your answer in fraction of an hour, e.g., 1.5 (1 hour and 30 minutes), 7.25 (7 hours and 15 minutes), 2.75 (2 hours and 45 minutes).</div><br>
 <form name="myForm" id="timeuseform" method="get" action="#">
-
-1. On average, how much you sleep per day?<br>
+<ol>
+<li>
+On average, how much you sleep per day?<br>
 <input type="text" name="sleep" value="" id="inputsleep"/><br><br>
-<div id="sleepbox"></div><br><br>
-
-2. On average, how much time you work on your workday (excludes travel related to work)?<br>
-<input type="text" name="work" value="" id="inputwork"/><br> and you are working 
+<div id="sleepboxmore">You sleep too much! You sleep <span id="sleepnomore"></span> than average Americans who sleep <span id="sleepavgnomore"></span> hours per day.</div>
+<div id="sleepboxless">You sleep too little! You sleep <span id="sleepnoless"></span> than average Americans who sleep <span id="sleepavgnoless"></span> hours per day.</div><br><br><br>
+</li>
+<li>
+On average, how much time you work on your workday (excludes travel related to work)?<br>
+<input type="text" name="work" value="" id="inputwork"/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Employment status
 <SELECT NAME="workstatus" SIZE="1" id="inputworkstatus">
-<OPTION>full-time
-<OPTION>part-time
+<OPTION>full-time</option>
+<OPTION>part-time</option>
 </SELECT><br><br>
-<div id="workbox"></div><br><br>
-
-3. On average, how much time you spend on shopping per day (done in person, via telephone, over the Internet, at home, or in a store)?<br>
+<div id="workboxmore">You work too much! You work <span id="worknomore"></span> than average <span id="workgendermore"></span> Americans with <span id="workstatusmore"></span> employment who work <span id="workavgnomore"></span> hours on workday.</div>
+<div id="workboxless">You work too little! You work <span id="worknoless"></span> than average <span id="workgenderless"></span> Americans with <span id="workstatusless"></span> employment who work <span id="workavgnoless"></span> hours on workday.</div><br><br><br>
+</li>
+<li>
+On average, how much time you spend on shopping per day (done in person, via telephone, over the Internet, at home, or in a store)?<br>
 <input type="text" name="shop" value="" id="inputshop"/><br><br>
-<div id="shopbox"></div><br><br>
-
-4. On average, how much time you spend on watching TV per weekend day?<br>
+<div id="shopboxmore">You shop too much! You shop <span id="shopnomore"></span> than average <span id="shopgendermore"></span> Americans aged <span id="shopagemore">%</span> who shop <span id="shopavgnomore"></span> hours per day.</div>
+<div id="shopboxless">You shop too little! You shop <span id="shopnoless"></span> than average <span id="shopgenderless"></span> Americans aged <span id="shopageless">%</span> who shop <span id="shopavgnoless"></span> hours per day.</div><br><br><br>
+</li>
+<li>
+On average, how much time you spend on watching TV on weekend day?<br>
 <input type="text" name="tv" value="" id="inputtv"/><br><br>
-<div id="tvbox"></div><br><br>
-
-5. On average, how much time you spend on playing games and computer use for leisure per weekend day?<br>
+<div id="tvboxmore">You watch too much TV! You watch <span id="tvnomore"></span> than average Americans aged <span id="tvagemore">%</span> who watch <span id="tvavgnomore"></span> hours on weekend day.</div>
+<div id="tvboxless">You watch too lttle TV! You watch <span id="tvnoless"></span> than average Americans aged <span id="tvageless">%</span> who watch <span id="tvavgnoless"></span> hours on weekend day.</div><br><br><br>
+</li>
+<li>
+On average, how much time you spend on playing games and computer use for leisure on weekend day?<br>
 <input type="text" name="video" value="" id="inputvideo"/><br><br>
-<div id="videobox"></div><br><br>
-
-6. On average, how much time you spend on sports, exercise and recreation per weekend day?<br>
+<div id="videoboxmore">You play too much! You spend <span id="videonomore"></span> than average Americans aged <span id="videoagemore">%</span> who play <span id="videoavgnomore"></span> hours on weekend day.</div>
+<div id="videoboxless">You play too little! You spend <span id="videonoless"></span> than average Americans aged <span id="videoageless">%</span> who play <span id="videoavgnoless"></span> hours on weekend day.</div><br><br><br>
+</li>
+<li>
+On average, how much time you spend on sports, exercise and recreation on weekend day?<br>
 <input type="text" name="sports" value="" id="inputsports"/><br><br>
-<div id="sportsbox"></div><br><br>
-
-Your gender:
+<div id="sportsboxmore">You workout too much! You workout <span id="sportsnomore"></span> than average Americans aged <span id="sportsagemore">%</span> who workout <span id="sportsavgnomore"></span> hours on weekend day.</div>
+<div id="sportsboxless">You workout too little! You workout <span id="sportsnoless"></span> than average Americans aged <span id="sportsageless">%</span> who workout <span id="sportsavgnoless"></span> hours on weekend day.</div><br><br><br>
+</li>
+<li class="genderbox">Gender
 <SELECT name="gender" SIZE="1" id="inputgender">
-<OPTION>male
-<OPTION>female
-</SELECT><br><br>
-
-Your age:
+<OPTION>male</option>
+<OPTION>female</option>
+</SELECT>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Age range
 <SELECT name="age" SIZE="1" id="inputage">
-<OPTION>15 to 19
-<OPTION>20 to 24
-<OPTION>25 to 34
-<OPTION>35 to 44
-<OPTION>45 to 54
-<OPTION>55 to 64
-<OPTION>65 to 74
-<OPTION>75 and above
-</SELECT><br><br>
+<OPTION>15 to 19</option>
+<OPTION>20 to 24</option>
+<OPTION>25 to 34</option>
+<OPTION>35 to 44</option>
+<OPTION>45 to 54</option>
+<OPTION>55 to 64</option>
+<OPTION>65 to 74</option>
+<OPTION>75 and above</option>
+</SELECT>
+</li>
+<br><br>
+</ol>
 
 <input type="submit" value="Submit" id="button"/>
-<INPUT TYPE="reset">
+
 </form>
 
+<br>
+<div id="result">
+<h2 id="bartitle">Your results compared with Americans of your gender, age group and employment status</h2>
+<div id="instruction">Hover over the bars to see which group is being compared and their average time use</div>
+<div id="barbox"></div>
 <br><br>
-<div id="barbox" style="width: 900px; height: 500px;"></div>
- 
-<script type="text/javascript" src="script.js"></script>
+<h2 id="bartitle2">Your results compared with general American population</h2>
+<div id="instruction">Hover over the bars to see the average time use</div>
+<div id="barbox2"></div>
+<br><br>
+<FORM id="bottomform">
+<INPUT TYPE="button" onClick="history.go(0)" VALUE="Take the quiz again" id="message">
+</FORM>
+</div>
+<script type="text/javascript" src="script4.js"></script>
  
 </body>
 </html>

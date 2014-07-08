@@ -1,3 +1,5 @@
+//$("#textbox").html("Hello <b>world</b>!");
+
 var avgsleep = 8.74;
 
 var datawork = [
@@ -24,7 +26,7 @@ var datashop = [
 {"age":"65-74","male":0.71,"female":0.92},
 {"age":"75over","male":0.82,"female":0.91}];
 
-$(document).ready(function(){
+function init (){
 
 //form validation using jquery validation plugin
 	 $("#timeuseform").validate({
@@ -87,7 +89,10 @@ $(document).ready(function(){
     },
     wrapper: 'span',        	
 
-submitHandler: function(form) {
+submitHandler: function(form) 
+	
+	{
+
 
 //setting the input variables
 		var inputsleep = $('#inputsleep').val(),
@@ -213,12 +218,49 @@ submitHandler: function(form) {
 		$("#sportsbox").addClass("more");
 		}
 	else{
-		$("#sportsbox").text("You exercise too much! You exercise " + sportsabs + "% less than average " + inputage + " Americans who exercise " + avgsports + " hours per weekend day.");
+		$("#sportsbox").text("You exercise too little! You exercise " + sportsabs + "% less than average " + inputage + " Americans who exercise " + avgsports + " hours per weekend day.");
 		$("#sportsbox").addClass("less");
 		}
 	console.log("question 6 answer: " + sportsabs);
-        }
+
+//create a new array based on calculation of input (convert to percentage)
+
+	var dataset = [
+		{"name":"Sleep","value": sleep/100},
+		{"name":"Work","value": work/100},
+		{"name":"Shop","value": shop/100},
+		{"name":"Watch TV","value": tv/100},
+		{"name":"Computer","value": video/100},
+		{"name":"Workout","value": sports/100}
+		];
+	console.log (dataset[1].value);
+
+
+	}
 
 });
 
-});
+};
+
+
+//code for google bar chart starts here
+google.load("visualization", "1", {packages:["corechart"], callback: init});
+google.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data1 = google.visualization.arrayToDataTable([
+          ['Year', 'Sales', 'Expenses'],
+          ['2004',  1000,      400],
+          ['2005',  1170,      460],
+          ['2006',  660,       1120],
+          ['2007',  1030,      540]
+        ]);
+
+        var options = {
+          title: 'Company Performance',
+          vAxis: {title: 'Year',  titleTextStyle: {color: 'red'}}
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('barbox'));
+        chart.draw(data1, options);
+        };

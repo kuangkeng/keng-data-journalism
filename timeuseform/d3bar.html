@@ -12,7 +12,7 @@
 }
 
 .axis text {
-  font: 10px sans-serif;
+  font: 15px sans-serif;
 }
 
 .axis path,
@@ -22,19 +22,25 @@
   shape-rendering: crispEdges;
 }
 
+
+
 </style>
 <body>
+<div id="barbox"></div>
+<div id="barbox2"></div>
+</body>
 <script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="d3-tipsy.js" charset="utf-8"></script>
 <script>
 
-var dataset = [{"name":"Sleep","value":3},
-{"name":"Work","value": -4},
-{"name":"Shop","value": 127},
-{"name":"Watch TV","value": -28},
-{"name":"Computer","value": 15},
-{"name":"Workout","value": 32}];
+var dataset = [{"name":"Sleep","value":0.03},
+{"name":"Work","value": -0.04},
+{"name":"Shop","value": 0.27},
+{"name":"Watch TV","value": -1},
+{"name":"Computer","value": 0.15},
+{"name":"Workout","value": 0.32}];
 
-var margin = {top: 30, right: 10, bottom: 10, left: 10},
+var margin = {top: 30, right: 10, bottom: 10, left: 140},
     width = 600 - margin.left - margin.right,
     height = 400 - margin.top - margin.bottom;
 
@@ -44,42 +50,203 @@ var x = d3.scale.linear()
 var y = d3.scale.ordinal()
     .rangeRoundBands([0, height], .2);
 
+var formatAsPercentage = d3.format("10%");
+
 var xAxis = d3.svg.axis()
     .scale(x)
-    .orient("top");
+    .orient("top")
+    .tickFormat(formatAsPercentage)
+    .ticks(5);
 
-var svg = d3.select("body").append("svg")
+var tip = d3.tip()
+  .attr('class', 'd3-tip')
+  .offset([-10, 0])
+  .html(function(d) {return "<strong>Name:</strong> <span style='color:red'>" + d.name + "</span>";});
+
+var svg = d3.select("#barbox").append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
+svg.call(tip);
+
   x.domain(d3.extent(dataset, function(d) { return d.value; })).nice();
   y.domain(dataset.map(function(d) { return d.name; }));
 
+var xd = x.domain(d3.extent(dataset, function(d) { return d.value; })).nice(),
+    yd = y.domain(dataset.map(function(d) { return d.name; }));
+
+
   svg.selectAll(".bar")
       .data(dataset)
-    .enter().append("rect")
+      .enter().append("rect")
       .attr("class", function(d) { return d.value < 0 ? "bar negative" : "bar positive"; })
       .attr("x", function(d) { return x(Math.min(0, d.value)); })
       .attr("y", function(d) { return y(d.name); })
       .attr("width", function(d) { return Math.abs(x(d.value) - x(0)); })
-      .attr("height", y.rangeBand());
+      .attr("height", y.rangeBand())
+      .on('mouseover', tip.show)
+      .on('mouseout', tip.hide);
+
+  svg.append("g")
+      .attr("class", "y axis")
+      .append("line")
+      .attr("x1", x(0))
+      .attr("x2", x(0))
+      .attr("y2", height);
 
   svg.append("g")
       .attr("class", "x axis")
       .call(xAxis);
 
-  svg.append("g")
-      .attr("class", "y axis")
-    .append("line")
-      .attr("x1", x(0))
-      .attr("x2", x(0))
-      .attr("y2", height);
+svg.selectAll("text.name")
+  .data(dataset)
+  .enter()
+  .append("text")
+  .text(function(d){return d.name;})
+  .attr("y", function(d) { return y(d.name)+ y.rangeBand()/2; })
+  .attr("x", -50)
+  .attr('stroke', 'none')
+  .attr('fill', 'black')
+  .attr("dy", ".35em")
+  .attr('text-anchor', 'end');
 
+  svg.selectAll("text.value")
+     .data(dataset)
+     .enter()
+     .append("text")
+     .text(function(d){return d.value * 100 + "%";})
+     .attr("x", function(d) { 
+        if (d.value <= 0) {
+          return x(Math.min(0, d.value));
+        }
+        else {
+          return x(Math.min(0, d.value)) + Math.abs(x(d.value)-x(0));
+        }
+        })
+     .attr("y", function(d) { return y(d.name)+ y.rangeBand()/2; })
+     .attr("text-anchor", function(d){
+      if (d.value <= 0) {return "end"}
+      else {return "left"}
+     })
+     .attr("dx", function(d){
+      if (d.value <= 0) {return -2}
+      else {return 2}
+     })
+     .attr("dy", ".36em")
+     .attr({"fill":"black","font-family":"sans-serif", "font-size":10});
+  
 function type(d) {
   d.value = +d.value;
   return d;
 }
+
+//second chart
+
+var dataset2 = [{"name":"Sleep","value":1},
+{"name":"Work","value": -0.5},
+{"name":"Shop","value": 0.15},
+{"name":"Watch TV","value": -0.2},
+{"name":"Computer","value": -0.3},
+{"name":"Workout","value": 0.1}];
+
+var margin = {top: 30, right: 10, bottom: 10, left: 140},
+    width = 600 - margin.left - margin.right,
+    height = 400 - margin.top - margin.bottom;
+
+var x = d3.scale.linear()
+    .range([0, width])
+
+var y = d3.scale.ordinal()
+    .rangeRoundBands([0, height], .2);
+
+var formatAsPercentage = d3.format("10%");
+
+var xAxis = d3.svg.axis()
+    .scale(x)
+    .orient("top")
+    .tickFormat(formatAsPercentage)
+    .ticks(5);
+
+var tip = d3.tip()
+  .attr('class', 'd3-tip')
+  .offset([-10, 0])
+  .html(function(d) {return "<strong>Name:</strong> <span style='color:red'>" + d.name + "</span>";});
+
+var svg = d3.select("#barbox2").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+svg.call(tip);
+
+  x.domain(d3.extent(dataset2, function(d) { return d.value; })).nice();
+  y.domain(dataset2.map(function(d) { return d.name; }));
+
+var xd = x.domain(d3.extent(dataset2, function(d) { return d.value; })).nice(),
+    yd = y.domain(dataset2.map(function(d) { return d.name; }));
+
+
+  svg.selectAll(".bar")
+      .data(dataset2)
+      .enter().append("rect")
+      .attr("class", function(d) { return d.value < 0 ? "bar negative" : "bar positive"; })
+      .attr("x", function(d) { return x(Math.min(0, d.value)); })
+      .attr("y", function(d) { return y(d.name); })
+      .attr("width", function(d) { return Math.abs(x(d.value) - x(0)); })
+      .attr("height", y.rangeBand())
+      .on('mouseover', tip.show)
+      .on('mouseout', tip.hide);
+
+  svg.append("g")
+      .attr("class", "y axis")
+      .append("line")
+      .attr("x1", x(0))
+      .attr("x2", x(0))
+      .attr("y2", height);
+
+  svg.append("g")
+      .attr("class", "x axis")
+      .call(xAxis);
+
+svg.selectAll("text.name")
+  .data(dataset2)
+  .enter()
+  .append("text")
+  .text(function(d){return d.name;})
+  .attr("y", function(d) { return y(d.name)+ y.rangeBand()/2; })
+  .attr("x", -50)
+  .attr('stroke', 'none')
+  .attr('fill', 'black')
+  .attr("dy", ".35em")
+  .attr('text-anchor', 'end');
+
+  svg.selectAll("text.value")
+     .data(dataset2)
+     .enter()
+     .append("text")
+     .text(function(d){return d.value * 100 + "%";})
+     .attr("x", function(d) { 
+        if (d.value <= 0) {
+          return x(Math.min(0, d.value));
+        }
+        else {
+          return x(Math.min(0, d.value)) + Math.abs(x(d.value)-x(0));
+        }
+        })
+     .attr("y", function(d) { return y(d.name)+ y.rangeBand()/2; })
+     .attr("text-anchor", function(d){
+      if (d.value <= 0) {return "end"}
+      else {return "left"}
+     })
+     .attr("dx", function(d){
+      if (d.value <= 0) {return -2}
+      else {return 2}
+     })
+     .attr("dy", ".36em")
+     .attr({"fill":"black","font-family":"sans-serif", "font-size":10});
+
 
 </script>

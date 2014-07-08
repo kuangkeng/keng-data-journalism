@@ -1,30 +1,79 @@
-body 
-            {
-        width:700px;
-        font-family:arial;
-        font-size:16px;
-        margin:20px auto;
-            }  
+body {
+  width:656px;
+  font-family:'Arimo';
+  font-size:15px;
+  margin:20px auto;
+      }  
 
 h1{
-      text-align: center;
-      font-family:georgia,serif;
-      font-weight:bold;
-      font-size: 30px;
-        }
+  text-align: center;
+  font-family: 'Roboto';
+  font-size: 26px;
+    }
 
-.more {
-  background-color: #D9534F;
-  color:white;
-  border-radius: 5px;
-  padding:10px 16px 10px 16px;
+h2{
+  font-family: 'Roboto';
+  font-size: 20px;
 }
 
-.less {
-  background-color: #5CB85C;
+#barbox, #barbox2 {
+  width:550px;
+  margin: 0px auto;
+  border:solid 1px black;
+}
+
+input[type=text] {
+ margin-top : 10px;
+}
+
+#caution, #instruction {
+  font-size:12px;
+  color:#8A8A8A;
+  margin-bottom : 10px;
+}
+
+#button {
+ width: 100px;  
+ font-size: 20px;
+ float: right;
+ margin-right:10%;
+}
+
+li.genderbox {
+    list-style-type: none;
+}
+
+#message {
+ font-size: 20px;
+ }
+
+#bottomform {
+  width: 150px;
+  margin: 0 auto;
+}
+ 
+.more {
+  background-color: #FF9009;
   color:white;
-  border-radius: 5px;
-  padding:10px 16px 10px 16px;
+  border-radius: 3px;
+  padding:2px 5px 2px 5px;
+  font-weight: normal;
+  font-size:16px;
+}
+
+
+.less {
+  background-color: #0C78B8;
+  color:white;
+  border-radius: 3px;
+  padding:2px 5px 2px 5px;
+  font-weight: normal;
+  font-size:16px;
+}
+
+#sleepboxmore, #sleepboxless, #workboxmore, #workboxless, #shopboxmore, #shopboxless, #tvboxmore, #tvboxless, #videoboxmore, #videoboxless, #sportsboxmore, #sportsboxless 
+{
+  font-weight: 700;
 }
 
 label.error {
@@ -34,16 +83,16 @@ label.error {
     color:#FA7A7A;
 }
 
-.positive {
-  fill: #D9534F;
+.bar.positive {
+  fill: #FF9009;
 }
 
-.negative {
-  fill: #5CB85C;
+.bar.negative {
+  fill: #0C78B8;
 }
 
 .axis text {
-  font: 10px sans-serif;
+  font: 10px 'Arimo';
 }
 
 .axis path,
@@ -52,3 +101,36 @@ label.error {
   stroke: #000;
   shape-rendering: crispEdges;
 }
+
+/* Style for the tooltip starts from here */
+
+.d3-tip {
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  border-radius: 2px;
+  font-family:'Arimo';
+  font-size: 14px;
+}
+
+/* Creates a small triangle extender for the tooltip */
+.d3-tip:after {
+  box-sizing: border-box;
+  display: inline;
+  font-size: 15px;
+  width: 100%;
+  line-height: 1;
+  color: rgba(0, 0, 0, 0.6);
+  content: "\25BC";
+  position: absolute;
+  text-align: center;
+}
+
+/* Style northward tooltips differently */
+.d3-tip.n:after {
+  margin: -1px 0 0 0;
+  top: 100%;
+  left: 0;
+}
+
+
