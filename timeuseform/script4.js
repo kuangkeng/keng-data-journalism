@@ -505,16 +505,29 @@ function type(d) {
   d.value = +d.value;
   return d;}
 
-
-
-
-
 $("#message, #result").show();
 $("#button").hide();
+
+//code for dynamic twitter message
+
+var twittermsg;
+if(sleep>0&&work>0){twittermsg="I sleep and work more than fellow Americans. What about you?";}
+if(sleep>0&&work<0){twittermsg="I sleep more and work less than fellow Americans. What about you?";}
+if(sleep<0&&work>0){twittermsg="I work more and sleep less than fellow Americans. What about you?";}
+if(sleep<0&&work<0){twittermsg="I sleep and work less than fellow Americans. What about you?";}
+else{"Do you sleep, work and play more than fellow Americans?";}
+
+console.log(twittermsg);
+
+$('a[data-text]').each(function(){
+    $(this).attr('data-text', twittermsg);
+    });
+$.getScript('http://platform.twitter.com/widgets.js');
 
    }
 
 
 });
+
 
 });

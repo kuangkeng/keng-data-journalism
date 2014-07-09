@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8">
+<meta property="fb:app_id" content="691401517599245" /> 
+<meta property="og:type" content="quiz" />
+<meta property="og:url" content="http://localhost:8888/timeuseform/fbtest.html" /> 
+<meta property="og:title" content="Time Use Quiz" />
+<meta property="og:description" content="Do you sleep, work and play more than fellow Americans?" /> 
+<meta property="og:image" content="http://localhost:8888/timeuseform/alkaseltzer.jpg"/> 
+<title>Bar Chart with Negative Values</title>
+</head>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="d3-tipsy.js" charset="utf-8"></script>
+<script src="http://connect.facebook.net/en_US/all.js"></script>
+
+
+
+<body>
+<div id="shareBtn">This is a FB button</div>
+<div id="fb-root"></div>
+<div
+  class="fb-like"
+  data-send="true"
+  data-width="450"
+  data-show-faces="true">
+</div>
+</body>
+
+<script>
+
+//code for FB SDK
+
+window.fbAsyncInit = function() {
+        FB.init({
+          appId      : '691401517599245',
+          xfbml      : true,
+          version    : 'v2.0'
+        });
+      };
+
+      (function(d, s, id){
+         var js, fjs = d.getElementsByTagName(s)[0];
+         if (d.getElementById(id)) {return;}
+         js = d.createElement(s); js.id = id;
+         js.src = "//connect.facebook.net/en_US/sdk.js";
+         fjs.parentNode.insertBefore(js, fjs);
+       }(document, 'script', 'facebook-jssdk'));
+
+</script>
+
+<script>
+document.getElementById('shareBtn').onclick = function() {
+  FB.ui({
+    display: 'popup',
+    method: 'share',
+    href: 'http://localhost:8888/timeuseform/fbtest.html',
+  }, function(response){});
+}
+</script>
+
+
+
+
+
