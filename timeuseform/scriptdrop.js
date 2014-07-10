@@ -89,7 +89,7 @@ $(document).ready(function(){
         errorPlacement: function(label, element) {
         label.insertAfter(element);
     },
-    wrapper: 'p',        	
+    wrapper: 'span',        	
 
 submitHandler: function(form) {
 

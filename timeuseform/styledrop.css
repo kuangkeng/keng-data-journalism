@@ -1,0 +1,158 @@
+body {
+  width:656px;
+  font-family:'Arimo';
+  font-size:15px;
+  margin:20px auto;
+  line-height: 22px;
+  color: #212121;
+  
+      }  
+
+h1{
+  text-align: center;
+  font-family: 'Roboto';
+  font-size: 26px;
+  line-height: 35px;
+    }
+
+h3, h2{
+  text-align: center;
+}
+
+#barbox, #barbox2 {
+  width:550px;
+  margin: 0px auto;
+  border:solid 1px black;
+}
+
+#instruction{
+  font-size:12px;
+  color:#8A8A8A;
+  width:550px;
+  margin: 0px auto;
+}
+
+input[type=text] {
+ width:30px; 
+ margin-top : 10px;
+ margin-bottom : 10px;
+}
+
+#caution, #note {
+  font-size:12px;
+  color:#8A8A8A;
+  margin-bottom : 10px;
+}
+
+#button {
+ width: 100px;  
+ font-size: 20px;
+ float: right;
+ margin-right:10%;
+}
+
+li.genderbox {
+    list-style-type: none;
+}
+
+#reset {
+ font-size: 20px;
+ }
+
+#bottomform, #sharebox {
+  width: 300px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+#about, #note{
+  margin: 0 auto;
+  width:550px;
+}
+
+a {
+  text-decoration:underline;
+}
+ 
+.more {
+  background-color: #FF9009;
+  color:white;
+  border-radius: 3px;
+  padding:2px 5px 2px 5px;
+  font-weight: normal;
+  font-size:16px;
+}
+
+
+.less {
+  background-color: #0C78B8;
+  color:white;
+  border-radius: 3px;
+  padding:2px 5px 2px 5px;
+  font-weight: normal;
+  font-size:16px;
+}
+
+#sleepboxmore, #sleepboxless, #workboxmore, #workboxless, #shopboxmore, #shopboxless, #tvboxmore, #tvboxless, #videoboxmore, #videoboxless, #sportsboxmore, #sportsboxless 
+{
+  font-weight: 700;
+}
+
+label.error {
+    margin-left:9px;
+    padding:1px 5px 0px 5px;
+    font-size:small;
+    color:#FA7A7A;
+}
+
+.bar.positive {
+  fill: #FF9009;
+}
+
+.bar.negative {
+  fill: #0C78B8;
+}
+
+.axis text {
+  font: 10px 'Arimo';
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+/* Style for the tooltip starts from here */
+
+.d3-tip {
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  border-radius: 2px;
+  font-family:'Arimo';
+  font-size: 14px;
+}
+
+/* Creates a small triangle extender for the tooltip */
+.d3-tip:after {
+  box-sizing: border-box;
+  display: inline;
+  font-size: 15px;
+  width: 100%;
+  line-height: 1;
+  color: rgba(0, 0, 0, 0.6);
+  content: "\25BC";
+  position: absolute;
+  text-align: center;
+}
+
+/* Style northward tooltips differently */
+.d3-tip.n:after {
+  margin: -1px 0 0 0;
+  top: 100%;
+  left: 0;
+}
+
+
