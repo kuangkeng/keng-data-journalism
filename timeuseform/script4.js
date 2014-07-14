@@ -35,61 +35,68 @@ $(document).ready(function(){
 		rules: {
 					sleep: {
 						required: true,
-						number: true
+						range: [0,24]
 					},
 					work: {
 						required: true,
-						number: true
+						range: [0,24]
 					},
 					shop: {
 						required: true,
-						number: true
+						range: [0,24]
 					},
 					tv: {
 						required: true,
-						number: true
+						range: [0,24]
 					},
 					video: {
 						required: true,
-						number: true
+						range: [0,24]
 					},
 					sports: {
 						required: true,
-						number: true
+						range: [0,24]
 					}
 				},
 //messages to be displayed if input cannot be validated
 		messages: {
                     sleep: {
                         required: "Please answer this question",
-                        number: "Must be a number with maximum 2 decimal places"
+                        range: "Must be a number between 0 and 24 with maximum 2 decimal places"
                     },
                     work: {
                         required: "Please answer this question",
-                        number: "Must be a number with maximum 2 decimal places"
+                        range: "Must be a number between 0 and 24 with maximum 2 decimal places"
                     },
                     shop: {
                         required: "Please answer this question",
-                        number: "Must be a number with maximum 2 decimal places"
+                        range: "Must be a number between 0 and 24 with maximum 2 decimal places"
                     },
                     tv: {
                         required: "Please answer this question",
-                        number: "Must be a number with maximum 2 decimal places"
+                        range: "Must be a number between 0 and 24 with maximum 2 decimal places"
                     },
                     video: {
                         required: "Please answer this question",
-                        number: "Must be a number with maximum 2 decimal places"
+                        range: "Must be a number between 0 and 24 with maximum 2 decimal places"
                     },
                     sports: {
                         required: "Please answer this question",
-                        number: "Must be a number with maximum 2 decimal places"
+                        range: "Must be a number between 0 and 24 with maximum 2 decimal places"
                     }
                 },
+
 //display error messages style if input cannot be validated
-        errorPlacement: function(label, element) {
-        label.insertAfter(element);
+       errorPlacement: function(error, element) {
+ //       error.insertAfter(element);
+        offset = element.offset();
+            error.insertAfter(element)
+            error.addClass('errormessage');  // add a class to the wrapper
+   			error.css('position', 'absolute');
+            error.css('left', offset.left);
+            error.css('top', offset.top + element.outerHeight() + 5);
     },
-    wrapper: 'span',        	
+    wrapper: 'div',        	
 
 submitHandler: function(form) {
 
