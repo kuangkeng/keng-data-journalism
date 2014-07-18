@@ -175,6 +175,13 @@ submitHandler: function(form) {
 			avgvideo = dataleisure[age].video,
 			avgsports = dataleisure[age].sports;
 
+		var avgworkhour = Math.floor(avgwork),
+			avgworkmin = Math.round((avgwork-Math.floor(avgwork))*60),
+			avgtvhour = Math.floor(avgtv),
+			avgtvmin = Math.round((avgtv-Math.floor(avgtv))*60),
+			avgshopmin = Math.round(avgshop*60),
+			avgvideomin = Math.round(avgvideo*60),
+			avgsportsmin = Math.round(avgsports*60);
 
 //code for question 1 on sleep
 
@@ -184,19 +191,23 @@ submitHandler: function(form) {
 		if(sleep>0){
 			$("#sleepboxmore").show();
 			$("#sleepnomore").text(sleepabs+"% more");
-			$("#sleepavgnomore").text(avgsleep);
 			$("#sleepnomore").addClass("more");
 		}
 		else{
 			$("#sleepboxless").show();
 			$("#sleepnoless").text(sleepabs+"% less");
-			$("#sleepavgnoless").text(avgsleep);
 			$("#sleepnoless").addClass("less");
 		}
 		console.log("question 1 answer: " + sleepabs);
 		console.log("question 1 hour and min input: " + inputsleep);
 		console.log("question 1 hour input: " + $('#inputsleephour').val());
 		console.log("question 1 min input: " + $('#inputsleepmin').val()/60);
+		console.log("avgwork: " + avgworkhour + "." + avgworkmin);
+		console.log("avgshop: " + avgshopmin);
+		console.log("avgtv: " + avgtvhour + "." + avgtvmin);
+		console.log("avgvideo: " + avgvideomin);
+		console.log("avgsports: " + avgsportsmin);
+		
 
 //code for question 2 on work
 		var workfull = (inputwork - avgwork)/avgwork *100,
@@ -205,7 +216,7 @@ submitHandler: function(form) {
 			if(work>0){
 				$("#workboxmore").show();
 				$("#worknomore").text(workabs+"% more");
-				$("#workavgnomore").text(avgwork);
+				$("#workavgnomore").text(avgworkhour + " hours and " + avgworkmin + " minutes");
 				$("#workgendermore").text(inputgender);
 				$("#workstatusmore").text(inputworkstatus);
 				$("#worknomore").addClass("more");
@@ -213,7 +224,7 @@ submitHandler: function(form) {
 			else{
 				$("#workboxless").show();
 				$("#worknoless").text(workabs+"% less");
-				$("#workavgnoless").text(avgwork);
+				$("#workavgnoless").text(avgworkhour + " hours and " + avgworkmin + " minutes");
 				$("#workgenderless").text(inputgender);
 				$("#workstatusless").text(inputworkstatus);
 				$("#worknoless").addClass("less");
@@ -227,7 +238,7 @@ submitHandler: function(form) {
 		if(shop>0){
 			$("#shopboxmore").show();
 			$("#shopnomore").text(shopabs+"% more");
-			$("#shopavgnomore").text(avgshop);
+			$("#shopavgnomore").text(" " + avgshopmin + " minutes");
 			$("#shopgendermore").text(inputgender);
 			$("#shopagemore").text(inputage);
 			$("#shopnomore").addClass("more");
@@ -235,7 +246,7 @@ submitHandler: function(form) {
 		else{
 			$("#shopboxless").show();
 			$("#shopnoless").text(shopabs+"% less");
-			$("#shopavgnoless").text(avgshop);
+			$("#shopavgnoless").text(" " + avgshopmin + " minutes");
 			$("#shopgenderless").text(inputgender);
 			$("#shopageless").text(inputage);
 			$("#shopnoless").addClass("less");
@@ -251,14 +262,14 @@ submitHandler: function(form) {
 	if(tv>0){
 		$("#tvboxmore").show();
 		$("#tvnomore").text(tvabs+"% more");
-		$("#tvavgnomore").text(avgtv);
+		$("#tvavgnomore").text(avgtvhour + " hours and " + avgtvmin + " minutes");
 		$("#tvagemore").text(inputage);
 		$("#tvnomore").addClass("more");
 		}
 	else{
 		$("#tvboxless").show();
 		$("#tvnoless").text(tvabs+"% less");
-		$("#tvavgnoless").text(avgtv);
+		$("#tvavgnoless").text(avgtvhour + " hours and " + avgtvmin + " minutes");
 		$("#tvageless").text(inputage);
 		$("#tvnoless").addClass("less");
 		}
@@ -272,14 +283,14 @@ submitHandler: function(form) {
 	if(video>0){
 		$("#videoboxmore").show();
 		$("#videonomore").text(videoabs+"% more");
-		$("#videoavgnomore").text(avgvideo);
+		$("#videoavgnomore").text(" " + avgvideomin + " minutes");
 		$("#videoagemore").text(inputage);
 		$("#videonomore").addClass("more");
 		}
 	else{
 		$("#videoboxless").show();
 		$("#videonoless").text(videoabs+"% less");
-		$("#videoavgnoless").text(avgvideo);
+		$("#videoavgnoless").text(" " + avgvideomin + " minutes");
 		$("#videoageless").text(inputage);
 		$("#videonoless").addClass("less");
 		}
@@ -293,14 +304,14 @@ submitHandler: function(form) {
 	if(sports>0){
 		$("#sportsboxmore").show();
 		$("#sportsnomore").text(sportsabs+"% more");
-		$("#sportsavgnomore").text(avgsports);
+		$("#sportsavgnomore").text(" " + avgsportsmin + " minutes");
 		$("#sportsagemore").text(inputage);
 		$("#sportsnomore").addClass("more");
 		}
 	else{
 		$("#sportsboxless").show();
 		$("#sportsnoless").text(sportsabs+"% less");
-		$("#sportsavgnoless").text(avgsports);
+		$("#sportsavgnoless").text(" " + avgsportsmin + " minutes");
 		$("#sportsageless").text(inputage);
 		$("#sportsnoless").addClass("less");
 		}
@@ -309,12 +320,12 @@ submitHandler: function(form) {
 //create a new array based on calculation of input (convert to percentage)
 
 	var dataset = [
-		{"name":"Sleep","value": sleep/100, "label": sleep, "tooltip": "Compared with average Americans" + " (" +avgsleep+" hours)"},
-		{"name":"Work","value": work/100, "label": work, "tooltip": "Compared with " + inputgender + " Americans with " + inputworkstatus + " employment" + " (" +avgwork+" hours)"},
-		{"name":"Shop","value": shop/100, "label": shop, "tooltip": "Compared with " + inputgender + " Americans aged " + inputage + " (" +avgshop+" hours)"},
-		{"name":"Watch TV","value": tv/100, "label": tv, "tooltip": "Compared with Americans aged " + inputage + " (" +avgtv+" hours)"},
-		{"name":"Computer","value": video/100, "label": video, "tooltip": "Compared with Americans aged " + inputage + " (" +avgvideo+" hours)"},
-		{"name":"Workout","value": sports/100, "label": sports, "tooltip": "Compared with Americans aged " + inputage + " (" +avgsports+" hours)"}
+		{"name":"Sleep","value": sleep/100, "label": sleep, "tooltip": "Compared with average Americans" + " (8:44)"},
+		{"name":"Work","value": work/100, "label": work, "tooltip": "Compared with " + inputgender + " Americans with " + inputworkstatus + " employment" + " (" +avgworkhour +":"+ avgworkmin + ")"},
+		{"name":"Shop","value": shop/100, "label": shop, "tooltip": "Compared with " + inputgender + " Americans aged " + inputage + " (" + "0:" + avgshopmin + ")"},
+		{"name":"Watch TV","value": tv/100, "label": tv, "tooltip": "Compared with Americans aged " + inputage + " (" + avgtvhour + ":" + avgtvmin + ")"},
+		{"name":"Computer","value": video/100, "label": video, "tooltip": "Compared with Americans aged " + inputage + " (" + "0:" + avgvideomin + ")"},
+		{"name":"Workout","value": sports/100, "label": sports, "tooltip": "Compared with Americans aged " + inputage + " (" + "0:" + avgsportsmin + ")"}
 		];
 	console.log (dataset[1].value);
 	
@@ -439,12 +450,12 @@ var sportsfull2 = (inputsports - dataavg.sports)/dataavg.sports *100,
 	sports2 = Math.round(sportsfull2);
 
 var dataset2 = [
-	{"name":"Sleep","value": sleep2/100, "label": sleep2, "tooltip": "Compared with general Americans" + " (" +dataavg.sleep+" hours)"},
-	{"name":"Work","value": work2/100, "label": work2, "tooltip": "Compared with general Americans" + " (" +dataavg.work+" hours)"},
-	{"name":"Shop","value": shop2/100, "label": shop2, "tooltip": "Compared with general Americans" + " (" +dataavg.shop+" hours)"},
-	{"name":"Watch TV","value": tv2/100, "label": tv2, "tooltip": "Compared with general Americans" + " (" +dataavg.tv+" hours)"},
-	{"name":"Computer","value": video2/100, "label": video2, "tooltip": "Compared with general Americans" + " (" +dataavg.video+" hours)"},
-	{"name":"Workout","value": sports2/100, "label": sports2, "tooltip": "Compared with general Americans" + " (" +dataavg.sports+" hours)"}];
+	{"name":"Sleep","value": sleep2/100, "label": sleep2, "tooltip": "Compared with general Americans (8:44)"},
+	{"name":"Work","value": work2/100, "label": work2, "tooltip": "Compared with general Americans (7:35)"},
+	{"name":"Shop","value": shop2/100, "label": shop2, "tooltip": "Compared with general Americans (0:45)"},
+	{"name":"Watch TV","value": tv2/100, "label": tv2, "tooltip": "Compared with general Americans (3:14)"},
+	{"name":"Computer","value": video2/100, "label": video2, "tooltip": "Compared with general Americans (0:29)"},
+	{"name":"Workout","value": sports2/100, "label": sports2, "tooltip": "Compared with general Americans (0:22)"}];
 
 //code for second d3 bar using dataset2:
 

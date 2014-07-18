@@ -8,7 +8,7 @@
   <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.12.0/jquery.validate.min.js"></script>
   <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
   <script src="d3-tipsy.js" charset="utf-8"></script>
-  <link rel="stylesheet" type="text/css" href="styledrop.css">
+  <link rel="stylesheet" type="text/css" href="styledropemo.css">
 </head>
 <body>
  
@@ -21,10 +21,23 @@
 <li>
 How many hours do you typically sleep a night?<br>
 <input type="text" name="sleephour" value="0" id="inputsleephour"/> hour
-&nbsp;&nbsp;&nbsp;<input type="text" name="sleepmin" value="0" id="inputsleepmin"/> minute
-<br>
-<div id="sleepboxmore">Stop hitting that snooze button! You sleep <span id="sleepnomore"></span> than the average American who sleeps 8 hours 44 minutes.</div>
-<div id="sleepboxless">Go back to bed! You sleep <span id="sleepnoless"></span> than the average American, who sleeps 8 hours 44 minutes.</div><br><br>
+&nbsp;&nbsp;&nbsp;<input type="text" name="sleepmin" value="0" id="inputsleepmin"/> minute<br>
+<div id="sleepboxmore">
+<table witdh="600">
+  <tr>
+    <th width="78%" height="70">Stop hitting that snooze button! You sleep <span id="sleepnomore"></span> than the average American who sleeps 8 hours 44 minutes.
+    <th align="center"><img src="images/sleepmore.jpg"></th></th>
+  </tr>
+</table>
+</div>
+<div id="sleepboxless">
+<table witdh="600">
+  <tr>
+    <th width="78%" height="70">Go back to bed! You sleep <span id="sleepnoless"></span> than the average American, who sleeps 8 hours 44 minutes.
+    <th align="center"><img src="images/sleepless.jpg"></th></th>
+  </tr>
+</table>
+</div><br><br>
 </li>
 <li>
 How many hours do you spend on the job during the average workday? Don’t count commute time.<br>
@@ -35,35 +48,105 @@ How many hours do you spend on the job during the average workday? Don’t count
 <OPTION>full-time</option>
 <OPTION>part-time</option>
 </SELECT><br>
-<div id="workboxmore">Clock out already! You work <span id="worknomore"></span> than the average <span id="workgendermore"></span> American with a <span id="workstatusmore"></span> job, who works <span id="workavgnomore"></span> hours. The figure among general American population is 7 hours 35 minutes.</div>
-<div id="workboxless">Time to get back to work! You work <span id="worknoless"></span> than the average <span id="workgenderless"></span> American with a <span id="workstatusless"></span> job, who works <span id="workavgnoless"></span> hours. The figure among general American population is 7 hours 35 minutes.</div><br><br>
+<div id="workboxmore">
+<table witdh="600">
+  <tr>
+    <th width="78%" height="70">Clock out already! You work <span id="worknomore"></span> than the average <span id="workgendermore"></span> American with a <span id="workstatusmore"></span> job, who works <span id="workavgnomore"></span>. The figure among general American population is 7 hours 35 minutes.
+    <th align="center"><img src="images/workmore.jpg"></th></th>
+  </tr>
+</table>
+</div>
+<div id="workboxless">
+<table witdh="600">
+  <tr>
+    <th width="78%" height="70">Time to get back to work! You work <span id="worknoless"></span> than the average <span id="workgenderless"></span> American with a <span id="workstatusless"></span> job, who works <span id="workavgnoless"></span>. The figure among general American population is 7 hours 35 minutes.
+    <th align="center"><img src="images/workless.jpg"></th></th>
+  </tr>
+</table>
+</div><br><br>
 <li>
 How much time you spend shopping per day, either in person, on the phone, online or at a store?<br>
 <input type="text" name="shophour" value="0" id="inputshophour"/> hour
 &nbsp;&nbsp;&nbsp;<input type="text" name="shopmin" value="0" id="inputshopmin"/> minute<br>
-<div id="shopboxmore">Put away that credit card! You shop <span id="shopnomore"></span> than the average <span id="shopgendermore"></span> American age <span id="shopagemore">%</span>, who shops <span id="shopavgnomore"></span> hours. The figure among general American population is 45 minutes.</div>
-<div id="shopboxless">Get your wallet out! You shop <span id="shopnoless"></span> than the average <span id="shopgenderless"></span> American age <span id="shopageless"></span>, who shops <span id="shopavgnoless"></span> hours. The figure among general American population is 45 minutes.</div><br><br>
+<div id="shopboxmore">
+<table witdh="600">
+  <tr>
+    <th width="78%" height="70">Put away that credit card! You shop <span id="shopnomore"></span> than the average <span id="shopgendermore"></span> American age <span id="shopagemore">%</span>, who shops <span id="shopavgnomore"></span>. The figure among general American population is 45 minutes.
+    <th align="center"><img src="images/shopmore.jpg"></th></th>
+  </tr>
+</table>
+</div>
+<div id="shopboxless">
+<table witdh="600">
+  <tr>
+    <th width="78%" height="70">Get your wallet out! You shop <span id="shopnoless"></span> than the average <span id="shopgenderless"></span> American age <span id="shopageless"></span>, who shops <span id="shopavgnoless"></span>. The figure among general American population is 45 minutes.
+    <th align="center"><img src="images/shopless.jpg"></th></th>
+  </tr>
+</table>
+</div><br><br>
 </li>
 <li>
 How much time you spend watching TV on a weekend day?<br>
 <input type="text" name="tvhour" value="0" id="inputtvhour"/> hour
 &nbsp;&nbsp;&nbsp;<input type="text" name="tvmin" value="0" id="inputtvmin"/> minute<br>
-<div id="tvboxmore">Step away from the flat-screen! You watch <span id="tvnomore"></span> TV than the average American age <span id="tvagemore"></span>, who watches <span id="tvavgnomore"></span> hours each weekend day. The figure among general American population is 3 hours 14 minutes.</div>
-<div id="tvboxless">Grab that remote! You watch <span id="tvnoless"></span> TV than the average American age <span id="tvageless"></span>, who watches <span id="tvavgnoless"></span> hours each weekend day. The figure among general American population is 3 hours 14 minutes.</div><br><br>
+<div id="tvboxmore">
+<table witdh="600">
+  <tr>
+    <th width="78%" height="70">Step away from the flat-screen! You watch <span id="tvnomore"></span> TV than the average American age <span id="tvagemore"></span>, who watches <span id="tvavgnomore"></span> each weekend day. The figure among general American population is 3 hours 14 minutes.
+    <th align="center"><img src="images/tvmore.jpg"></th></th>
+  </tr>
+</table>
+</div>
+<div id="tvboxless">
+<table witdh="600">
+  <tr>
+    <th width="78%" height="70">Grab that remote! You watch <span id="tvnoless"></span> TV than the average American age <span id="tvageless"></span>, who watches <span id="tvavgnoless"></span> each weekend day. The figure among general American population is 3 hours 14 minutes.
+    <th align="center"><img src="images/tvless.jpg"></th></th>
+  </tr>
+</table>
+</div><br><br>
 </li>
 <li>
 How long do you spend playing video games and using computers for leisure, such as browsing the Internet or checking Facebook, on a typical weekend day?<br>
 <input type="text" name="videohour" value="0" id="inputvideohour"/> hour
 &nbsp;&nbsp;&nbsp;<input type="text" name="videomin" value="0" id="inputvideomin"/> minute<br>
-<div id="videoboxmore">Log off and put the game console away! You spend <span id="videonomore"></span> time on these activities than the average American age <span id="videoagemore"></span>, who spends <span id="videoavgnomore"></span> hours. The figure among general American population is 29 minutes.</div>
-<div id="videoboxless">Go ahead, start that YouTube binge! You spend <span id="videonoless"></span> time on these activities than the average American age <span id="videoageless"></span> who spends <span id="videoavgnoless"></span> hours. The figure among general American population is 29 minutes.</div><br><br>
+<div id="videoboxmore">
+<table witdh="600">
+  <tr>
+    <th width="78%" height="70">Log off and put the game console away! You spend <span id="videonomore"></span> time on these activities than the average American age <span id="videoagemore"></span>, who spends <span id="videoavgnomore"></span>. The figure among general American population is 29 minutes.
+    <th align="center"><img src="images/videomore.jpg"></th></th>
+  </tr>
+</table>
+</div>
+<div id="videoboxless">
+<table witdh="600">
+  <tr>
+    <th width="78%" height="70">Go ahead, start that YouTube binge! You spend <span id="videonoless"></span> time on these activities than the average American age <span id="videoageless"></span> who spends <span id="videoavgnoless"></span>. The figure among general American population is 29 minutes.
+    <th align="center"><img src="images/videoless.jpg"></th></th>
+  </tr>
+</table>
+</div><br><br>
 </li>
 <li>
 How much time you spend on sports, exercise and recreation on a weekend day?<br>
 <input type="text" name="sportshour" value="0" id="inputsportshour"/> hour
 &nbsp;&nbsp;&nbsp;<input type="text" name="sportsmin" value="0" id="inputsportsmin"/> minute<br>
-<div id="sportsboxmore">Give those muscles a break! You workout <span id="sportsnomore"></span> than the average American age <span id="sportsagemore"></span>, who spends <span id="sportsavgnomore"></span> hours breaking a sweat. The figure among general American population is 22 minutes.</div>
-<div id="sportsboxless">Better hit the gym! You workout <span id="sportsnoless"></span> than the average American age <span id="sportsageless"></span>, who spends <span id="sportsavgnoless"></span> hours breaking a sweat. The figure among general American population is 22 minutes.</div><br><br>
+<div id="sportsboxmore">
+<table witdh="600">
+  <tr>
+    <th width="78%" height="70">Give those muscles a break! You workout <span id="sportsnomore"></span> than the average American age <span id="sportsagemore"></span>, who spends <span id="sportsavgnomore"></span> breaking a sweat. The figure among general American population is 22 minutes.
+    <th align="center"><img src="images/sportsmore.jpg"></th></th>
+  </tr>
+</table>
+</div>
+<div id="sportsboxless">
+<table witdh="600">
+  <tr>
+    <th width="78%" height="70">Better hit the gym! You workout <span id="sportsnoless"></span> than the average American age <span id="sportsageless"></span>, who spends <span id="sportsavgnoless"></span> breaking a sweat. The figure among general American population is 22 minutes.
+    <th align="center"><img src="images/sportsless.jpg"></th></th>
+  </tr>
+</table>
+</div><br><br>
 </li>
 <li class="genderbox">Gender
 <SELECT name="gender" SIZE="1" id="inputgender">
