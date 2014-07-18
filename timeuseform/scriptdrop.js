@@ -33,73 +33,116 @@ $(document).ready(function(){
 //form validation using jquery validation plugin
 	 $("#timeuseform").validate({
 		rules: {
-					sleep: {
+					sleephour: {
 						required: true,
-						number: true
+						range: [0,24]
 					},
-					work: {
-						required: true,
-						number: true
+					sleepmin: {
+						range: [0,59]
 					},
-					shop: {
+					workhour: {
 						required: true,
-						number: true
+						range: [0,24]
 					},
-					tv: {
-						required: true,
-						number: true
+					workmin: {
+						range: [0,59]
 					},
-					video: {
+					shophour: {
 						required: true,
-						number: true
+						range: [0,24]
 					},
-					sports: {
+					shopmin: {
+						range: [0,59]
+					},
+					tvhour: {
 						required: true,
-						number: true
-					}
+						range: [0,24]
+					},
+					tvmin: {
+						range: [0,59]
+					},
+					videohour: {
+						required: true,
+						range: [0,24]
+					},
+					videomin: {
+						range: [0,59]
+					},
+					sportshour: {
+						required: true,
+						range: [0,24]
+					},
+					sportsmin: {
+						range: [0,59]
+					},
 				},
 //messages to be displayed if input cannot be validated
 		messages: {
-                    sleep: {
+                    sleephour: {
                         required: "Please answer this question",
-                        number: "Must be a number with maximum 2 decimal places"
+                        range: "Must be a number between 0 and 24"
                     },
-                    work: {
-                        required: "Please answer this question",
-                        number: "Must be a number with maximum 2 decimal places"
+                    sleepmin: {
+                        range: "Must be a number between 0 and 59"
                     },
-                    shop: {
+                    workhour: {
                         required: "Please answer this question",
-                        number: "Must be a number with maximum 2 decimal places"
+                        range: "Must be a number between 0 and 24"
                     },
-                    tv: {
-                        required: "Please answer this question",
-                        number: "Must be a number with maximum 2 decimal places"
+                    workmin: {
+                        range: "Must be a number between 0 and 59"
                     },
-                    video: {
+                    shophour: {
                         required: "Please answer this question",
-                        number: "Must be a number with maximum 2 decimal places"
+                        range: "Must be a number between 0 and 24"
                     },
-                    sports: {
+                    shopmin: {
+                        range: "Must be a number between 0 and 59"
+                    },
+                    tvhour: {
                         required: "Please answer this question",
-                        number: "Must be a number with maximum 2 decimal places"
-                    }
+                        range: "Must be a number between 0 and 24"
+                    },
+                    tvmin: {
+                        range: "Must be a number between 0 and 59"
+                    },
+                    videohour: {
+                        required: "Please answer this question",
+                        range: "Must be a number between 0 and 24"
+                    },
+                    videomin: {
+                        range: "Must be a number between 0 and 59"
+                    },
+                    sportshour: {
+                        required: "Please answer this question",
+                        range: "Must be a number between 0 and 24"
+                    },
+                    sportsmin: {
+                        range: "Must be a number between 0 and 59"
+                    },
                 },
+
 //display error messages style if input cannot be validated
-        errorPlacement: function(label, element) {
-        label.insertAfter(element);
+       errorPlacement: function(error, element) {
+ //       error.insertAfter(element);
+        offset = element.offset();
+            error.insertAfter(element)
+            error.addClass('errormessage');  // add a class to the wrapper
+   			error.css('position', 'absolute');
+            error.css('left', offset.left);
+            error.css('top', offset.top + element.outerHeight() + 5);
     },
-    wrapper: 'span',        	
+    wrapper: 'div',        	
 
 submitHandler: function(form) {
 
 //setting the input variables
-		var inputsleep = $('#inputsleep').val(),
-			inputwork = $('#inputwork').val(),
-			inputshop = $('#inputshop').val(),
-			inputtv = $('#inputtv').val(),
-			inputvideo = $('#inputvideo').val(),
-			inputsports = $('#inputsports').val(),
+		var inputsleep = ($('#inputsleephour').val()/10*10 + $('#inputsleepmin').val()/60),
+			inputwork = $('#inputworkhour').val()/10*10 + $('#inputworkmin').val()/60,
+			inputshop = $('#inputshophour').val()/10*10 + $('#inputshopmin').val()/60,
+			inputtv = $('#inputtvhour').val()/10*10 + $('#inputtvmin').val()/60,
+			inputvideo = $('#inputvideohour').val()/10*10 + $('#inputvideomin').val()/60,
+			inputsports = $('#inputsportshour').val()/10*10 + $('#inputsportsmin').val()/60,
 			inputage = $('#inputage').val(),
 			inputgender = $('#inputgender').val(),
 			inputworkstatus = $('#inputworkstatus').val();
@@ -151,6 +194,9 @@ submitHandler: function(form) {
 			$("#sleepnoless").addClass("less");
 		}
 		console.log("question 1 answer: " + sleepabs);
+		console.log("question 1 hour and min input: " + inputsleep);
+		console.log("question 1 hour input: " + $('#inputsleephour').val());
+		console.log("question 1 min input: " + $('#inputsleepmin').val()/60);
 
 //code for question 2 on work
 		var workfull = (inputwork - avgwork)/avgwork *100,
