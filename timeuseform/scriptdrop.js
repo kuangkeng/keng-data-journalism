@@ -573,23 +573,33 @@ if(sleep>0&&work<0){twittermsg="I sleep more and work less than fellow Americans
 if(sleep<0&&work>0){twittermsg="I work more and sleep less than fellow Americans. What about you?";}
 if(sleep<0&&work<0){twittermsg="I sleep and work less than fellow Americans. What about you?";}
 else{"Do you sleep, work and play more than fellow Americans?";}
+
 console.log(twittermsg);
+
 $('a[data-text]').each(function(){
     $(this).attr('data-text', twittermsg);
     });
 $.getScript('http://platform.twitter.com/widgets.js');
 
-
 //Facebook SDK
 
+$(".fb-share-button").click(function(){
+         FB.ui(
+  {
+    method: 'share',
+    href: 'http://kuangkeng.github.io/keng-data-journalism/timeuseform/indexdropemo.html',
+  },
+  function(response) {
+    if (response && !response.error_code) {
+      alert('Posting completed.');
+    } else {
+      alert('Error while posting.');
+    }
+  }
+);
 
-$(".facebook").click(function(){
-         
-FB.login(function(){
- FB.api('/me/feed', 'post', {message: twittermsg});
-}, {scope: 'publish_actions'});
+    });
 
-});
 
 
 
