@@ -584,12 +584,12 @@ $.getScript('http://platform.twitter.com/widgets.js');
 $(".facebook").click(function(){
          FB.ui({
      method: 'share_open_graph',
-     action_type: 'og.likes',
+     action_type: 'og.share',
      action_properties: JSON.stringify({
-      object:'https://developers.facebook.com/docs/',
+      object:'http://kuangkeng.github.io/keng-data-journalism/timeuseform/indexdropemo.html',
      })
     }, function(response){});
-         
+
     });
 
 
