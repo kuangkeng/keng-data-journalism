@@ -1,11 +1,5 @@
 $("#message, #workboxmore, #workboxless, #sleepboxmore, #sleepboxless, #shopboxmore, #shopboxless, #tvboxmore, #tvboxless, #videoboxmore, #videoboxless, #sportsboxmore, #sportsboxless, #result").hide();
 
-completeUrl = "https://www.facebook.com/sharer/sharer.php?u=http://kuangkeng.github.io/keng-data-journalism/timeuseform/result1.html";
-
-$(".facebook").click(function(){
-        window.open(completeUrl, '_blank');
-    });
-
 var dataavg = {sleep: 8.74, work: 7.58, shop: 0.75, tv: 3.24, sports: 0.36, video: 0.48};
 
 var avgsleep = 8.74;
@@ -586,6 +580,16 @@ $('a[data-text]').each(function(){
     $(this).attr('data-text', twittermsg);
     });
 $.getScript('http://platform.twitter.com/widgets.js');
+
+var completeUrl = "http://www.facebook.com/dialog/feed?app_id=[691401517599245]' + '&link=[http://kuangkeng.github.io/keng-data-journalism/timeuseform/indexdropemo.html]' +'&picture=[http://kuangkeng.github.io/keng-data-journalism/timeuseform/images/workmore.jpg]' +'&name=' + encodeURIComponent('[TITLE TESTING]') +'&caption=' + encodeURIComponent('[CAPTION TESTING]) +'&description=' + encodeURIComponent('[CONTENT TESTING]') +'&redirect_uri=' + FBVars.baseURL + '[http://kuangkeng.github.io/keng-data-journalism/timeuseform/images/workmore.jpg]' +'&display=popup';";
+
+$(".facebook").click(function(){
+        window.open(completeUrl, '_blank');
+    });
+
+
+
+
 
    }
 
