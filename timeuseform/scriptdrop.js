@@ -582,13 +582,19 @@ $('a[data-text]').each(function(){
 $.getScript('http://platform.twitter.com/widgets.js');
 
 $(".facebook").click(function(){
-         FB.ui({
-     method: 'share_open_graph',
-     action_type: 'og.share',
-     action_properties: JSON.stringify({
-      object:'http://kuangkeng.github.io/keng-data-journalism/timeuseform/indexdropemo.html',
-     })
-    }, function(response){});
+         FB.ui(
+  {
+    method: 'share',
+    href: 'http://kuangkeng.github.io/keng-data-journalism/timeuseform/indexdropemo.html',
+  },
+  function(response) {
+    if (response && !response.error_code) {
+      alert('Posting completed.');
+    } else {
+      alert('Error while posting.');
+    }
+  }
+);
 
     });
 
