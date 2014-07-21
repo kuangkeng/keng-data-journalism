@@ -581,10 +581,15 @@ $('a[data-text]').each(function(){
     });
 $.getScript('http://platform.twitter.com/widgets.js');
 
-var completeUrl = "http://www.facebook.com/dialog/feed?app_id=[691401517599245]' + '&link=[http://kuangkeng.github.io/keng-data-journalism/timeuseform/indexdropemo.html]' +'&picture=[http://kuangkeng.github.io/keng-data-journalism/timeuseform/images/workmore.jpg]' +'&name=' + encodeURIComponent('[TITLE TESTING]') +'&caption=' + encodeURIComponent('[CAPTION TESTING]) +'&description=' + encodeURIComponent('[CONTENT TESTING]') +'&redirect_uri=' + FBVars.baseURL + '[http://kuangkeng.github.io/keng-data-journalism/timeuseform/images/workmore.jpg]' +'&display=popup';";
-
 $(".facebook").click(function(){
-        window.open(completeUrl, '_blank');
+         FB.ui({
+     method: 'share_open_graph',
+     action_type: 'og.likes',
+     action_properties: JSON.stringify({
+      object:'https://developers.facebook.com/docs/',
+     })
+    }, function(response){});
+         
     });
 
 
