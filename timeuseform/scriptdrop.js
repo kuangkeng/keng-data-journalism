@@ -582,16 +582,14 @@ $.getScript('http://platform.twitter.com/widgets.js');
 
 //Facebook SDK
 
-$(".facebook").click(function(){
-         FB.api('/me/feed', 'post', { message: twittermsg }, function(response) {
-  if (response && !response.error_code) {
-      alert('Posting completed.');
-    } else {
-      alert('Error while posting.');
-    }
-});
-    });
 
+$(".facebook").click(function(){
+         
+FB.login(function(){
+ FB.api('/me/feed', 'post', {message: twittermsg});
+}, {scope: 'publish_actions'});
+
+});
 
 
 
