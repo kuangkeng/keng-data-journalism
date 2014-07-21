@@ -1,5 +1,11 @@
 $("#message, #workboxmore, #workboxless, #sleepboxmore, #sleepboxless, #shopboxmore, #shopboxless, #tvboxmore, #tvboxless, #videoboxmore, #videoboxless, #sportsboxmore, #sportsboxless, #result").hide();
 
+completeUrl = "https://www.facebook.com/sharer/sharer.php?u=http://kuangkeng.github.io/keng-data-journalism/timeuseform/indexdropemo.html&p[summary]=summarytesting123&p[title]=titletesting";
+
+$(".facebook").click(function(){
+        window.open(completeUrl, '_blank');
+    });
+
 var dataavg = {sleep: 8.74, work: 7.58, shop: 0.75, tv: 3.24, sports: 0.36, video: 0.48};
 
 var avgsleep = 8.74;
