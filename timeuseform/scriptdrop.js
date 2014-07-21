@@ -1,6 +1,6 @@
 $("#message, #workboxmore, #workboxless, #sleepboxmore, #sleepboxless, #shopboxmore, #shopboxless, #tvboxmore, #tvboxless, #videoboxmore, #videoboxless, #sportsboxmore, #sportsboxless, #result").hide();
 
-completeUrl = "https://www.facebook.com/sharer/sharer.php?u=http://kuangkeng.github.io/keng-data-journalism/timeuseform/indexdropemo.html&p[summary]=summarytesting123&p[title]=titletesting";
+completeUrl = "https://www.facebook.com/sharer/sharer.php?u=http://kuangkeng.github.io/keng-data-journalism/timeuseform/result1.html";
 
 $(".facebook").click(function(){
         window.open(completeUrl, '_blank');
