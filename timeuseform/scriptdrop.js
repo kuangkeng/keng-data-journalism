@@ -584,19 +584,17 @@ $.getScript('http://platform.twitter.com/widgets.js');
 //Facebook SDK
 
 $(".fb-share-button").click(function(){
-         FB.ui(
-  {
-    method: 'share',
-    href: 'http://kuangkeng.github.io/keng-data-journalism/timeuseform/indexdropemo.html',
-  },
-  function(response) {
-    if (response && !response.error_code) {
-      alert('Posting completed.');
-    } else {
-      alert('Error while posting.');
-    }
-  }
-);
+
+FB.ui(
+{
+method: 'feed',
+name: 'testing',
+link: 'http://kuangkeng.github.io/keng-data-journalism/timeuseform/indexdrop.html',
+picture: 'http://kuangkeng.github.io/keng-data-journalism/timeuseform/images/workless.jpg',
+caption: 'I love HyperArts tutorials',
+description: 'The HyperArts Blog provides tutorials for all things Facebook',
+message: ''
+});
 
     });
 
