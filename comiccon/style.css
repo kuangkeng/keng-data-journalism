@@ -1,17 +1,32 @@
 @import '//fonts.googleapis.com/css?family=Lato:400,400italic|Arvo:700,400,400italic';
 
 body {
-    font-family:'Arimo';
+    font-family: Chalkboard;
     font-size:15px;
     padding: 0;
-    color: #4E443C;
+    color: #000;
     text-shadow: 0 1px 0 rgba(255, 255, 255, 0.75);
-    width: 650px;
+    width: 640px;
     margin: auto;
 }
 
+.bigbox{
+  width: 630px;
+  height:600px;
+}
+
+.photo {
+    width: 630px;
+    height: 531px;
+}
+
+.description{
+    height:60px;
+    margin:10px 50px 0px 50px;
+}
+
 .wrapper {
-    max-width: 530px;
-    padding: 0 20px 40px 20px;
+    max-width: 640px;
+    padding: 0px 0px 0px 0px;
     margin: auto;
 }
