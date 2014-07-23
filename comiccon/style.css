@@ -1,0 +1,17 @@
+@import '//fonts.googleapis.com/css?family=Lato:400,400italic|Arvo:700,400,400italic';
+
+body {
+    font-family:'Arimo';
+    font-size:15px;
+    padding: 0;
+    color: #4E443C;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.75);
+    width: 650px;
+    margin: auto;
+}
+
+.wrapper {
+    max-width: 530px;
+    padding: 0 20px 40px 20px;
+    margin: auto;
+}
