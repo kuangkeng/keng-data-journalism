@@ -581,22 +581,7 @@ $('a[data-text]').each(function(){
     });
 $.getScript('http://platform.twitter.com/widgets.js');
 
-//Facebook SDK
 
-$(".fb-share-button").click(function(){
-
-FB.ui(
-{
-method: 'feed',
-name: 'testing',
-link: 'http://kuangkeng.github.io/keng-data-journalism/timeuseform/indexdrop.html',
-picture: 'http://kuangkeng.github.io/keng-data-journalism/timeuseform/images/workless.jpg',
-caption: 'I love HyperArts tutorials',
-description: 'The HyperArts Blog provides tutorials for all things Facebook',
-message: ''
-});
-
-    });
 
 
 
@@ -606,6 +591,23 @@ message: ''
 
 
 });
+
+//Facebook SDK
+
+$(".fb-share-button").click(function(){
+
+FB.ui(
+{
+method: 'feed',
+name: "testing",
+link: "http://kuangkeng.github.io/keng-data-journalism/comiccon/index.html",
+picture: "http://kuangkeng.github.io/keng-data-journalism/comiccon/img/SDCC640-2.jpg",
+caption: "I love SDCC",
+description: "This works",
+message: ""
+});   
+
+    });
 
 
 });
