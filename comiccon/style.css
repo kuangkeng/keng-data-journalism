@@ -11,6 +11,12 @@ body {
     border: 1px solid #E7E7E7;
 }
 
+.logotitle{
+    font-family:impact;
+    font-size: 60px;
+    text-align: center;
+}
+
 .bigbox{
   width: 630px;
   height:600px;
@@ -27,7 +33,7 @@ body {
 }
 
 .wrapper {
-    max-width: 640px;
+    max-width: 620px;
     padding: 0px 0px 0px 0px;
     margin: auto;
 }
