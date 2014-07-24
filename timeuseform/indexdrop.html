@@ -11,6 +11,7 @@
   <link rel="stylesheet" type="text/css" href="styledrop.css">
 </head>
 <body>
+  <div class="fb-share-button" data-width="56"></div>
  
 <h1>Do you sleep, work and play more than fellow Americans?</h1>
 <br>
@@ -140,5 +141,23 @@ How much time you spend on sports, exercise and recreation on a weekend day?<br>
 </div>
 
 <script type="text/javascript" src="scriptdrop.js"></script>
+<div id="fb-root"></div>
+<script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId      : '1434958886786909',
+          xfbml      : true,
+          version    : 'v2.0'
+        });
+      };
+
+      (function(d, s, id){
+         var js, fjs = d.getElementsByTagName(s)[0];
+         if (d.getElementById(id)) {return;}
+         js = d.createElement(s); js.id = id;
+         js.src = "//connect.facebook.net/en_US/sdk.js";
+         fjs.parentNode.insertBefore(js, fjs);
+       }(document, 'script', 'facebook-jssdk'));
+    </script>
 </body>
 </html>
