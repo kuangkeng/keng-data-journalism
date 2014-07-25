@@ -1,0 +1,125 @@
+.wrapper {
+	margin:auto;padding:0px;
+	width:30%;
+}
+
+.date {
+	text-align: center;
+	padding:5px;
+	font-size:17px;
+	font-family:"Arimo";
+	font-weight:bold;
+}
+
+.title{
+	text-align: center;
+	padding:2px;
+	padding-bottom: 10px;
+	font-size:19px;
+	font-family:"Arimo";
+	font-weight:bold;
+
+}
+
+.source{
+	color:#5c5c5c;
+	padding:10px;
+
+}
+
+.CSSTableGenerator {
+	margin:auto;padding:0px;
+	width:100%;
+	
+	-moz-border-radius-bottomleft:0px;
+	-webkit-border-bottom-left-radius:0px;
+	border-bottom-left-radius:0px;
+	
+	-moz-border-radius-bottomright:0px;
+	-webkit-border-bottom-right-radius:0px;
+	border-bottom-right-radius:0px;
+	
+	-moz-border-radius-topright:0px;
+	-webkit-border-top-right-radius:0px;
+	border-top-right-radius:0px;
+	
+	-moz-border-radius-topleft:0px;
+	-webkit-border-top-left-radius:0px;
+	border-top-left-radius:0px;
+}.CSSTableGenerator table{
+	box-shadow: 5px 5px 2px #888888;
+    border-collapse: collapse;
+    border-spacing: 0;
+	width:100%;
+	height:40%;
+	margin:0px;padding:0px;
+}.CSSTableGenerator tr:last-child td:last-child {
+	-moz-border-radius-bottomright:0px;
+	-webkit-border-bottom-right-radius:0px;
+	border-bottom-right-radius:0px;
+}
+.CSSTableGenerator table tr:first-child td:first-child {
+	-moz-border-radius-topleft:px;
+	-webkit-border-top-left-radius:0px;
+	border-top-left-radius:0px;
+}
+.CSSTableGenerator table tr:first-child td:last-child {
+	-moz-border-radius-topright:0px;
+	-webkit-border-top-right-radius:0px;
+	border-top-right-radius:0px;
+}.CSSTableGenerator tr:last-child td:first-child{
+	-moz-border-radius-bottomleft:0px;
+	-webkit-border-bottom-left-radius:0px;
+	border-bottom-left-radius:0px;
+}.CSSTableGenerator tr:hover td{
+	background-color:#d3e9ff;
+		
+
+}
+.CSSTableGenerator td{
+	vertical-align:middle;
+	
+	background-color:#ffffff;
+
+	border:1px solid #8a8a8a;
+	border-width:0px 1px 1px 1px;
+	text-align:center;
+	padding:5px;
+	font-size:16px;
+	font-family:"Arimo";
+	font-weight:normal;
+	color:#000000;
+}.CSSTableGenerator tr:last-child td{
+	border-width:0px 1px 1px 1px;
+}.CSSTableGenerator tr td:last-child{
+	border-width:0px 1px 1px 0px;
+}.CSSTableGenerator tr:last-child td:last-child{
+	border-width:0px 1px 1px 0px;
+}
+.CSSTableGenerator tr:first-child td{
+		background:-o-linear-gradient(bottom, #0000bf 5%, #007fff 100%);	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #0000bf), color-stop(1, #007fff) );
+	background:-moz-linear-gradient( center top, #0000bf 5%, #007fff 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr="#0000bf", endColorstr="#007fff");	background: -o-linear-gradient(top,#0000bf,007fff);
+
+	background-color:#0000bf;
+	border:0px solid #8a8a8a;
+	text-align:center;
+	border-width:0px 1px 1px 1px;
+	font-size:18px;
+	font-family:"Arimo";
+	font-weight:bold;
+	color:#ffffff;
+}
+.CSSTableGenerator tr:first-child:hover td{
+	background:-o-linear-gradient(bottom, #0000bf 5%, #007fff 100%);	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #0000bf), color-stop(1, #007fff) );
+	background:-moz-linear-gradient( center top, #0000bf 5%, #007fff 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr="#0000bf", endColorstr="#007fff");	background: -o-linear-gradient(top,#0000bf,007fff);
+
+	background-color:#0000bf;
+}
+.CSSTableGenerator tr:first-child td:first-child{
+	border-width:0px 0px 1px 0px;
+}
+.CSSTableGenerator tr:first-child td:last-child{
+	border-width:0px 1px 1px 1px;
+}
