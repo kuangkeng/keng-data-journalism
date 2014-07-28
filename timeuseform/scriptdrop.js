@@ -581,24 +581,21 @@ $('a[data-text]').each(function(){
     });
 $.getScript('http://platform.twitter.com/widgets.js');
 
-var fbresult;
-if(sleep>0&&work>0){fbresult="'http://kuangkeng.github.io/keng-data-journalism/timeuseform/result1.html'";}
-if(sleep>0&&work<0){fbresult="'http://kuangkeng.github.io/keng-data-journalism/timeuseform/result1.html'";}
-if(sleep<0&&work>0){fbresult="'http://kuangkeng.github.io/keng-data-journalism/timeuseform/result2.html'";}
-if(sleep<0&&work<0){fbresult="'http://kuangkeng.github.io/keng-data-journalism/timeuseform/result2.html'";}
-   }
-
-
-});
 
 //Facebook SDK
+
+var twittermsg;
+if(sleep>0&&work>0){fbmsg="'http://kuangkeng.github.io/keng-data-journalism/timeuseform/result1.html'";}
+if(sleep>0&&work<0){fbmsg="'http://kuangkeng.github.io/keng-data-journalism/timeuseform/result1.html'";}
+if(sleep<0&&work>0){fbmsg="'http://kuangkeng.github.io/keng-data-journalism/timeuseform/result2.html'";}
+if(sleep<0&&work<0){fbmsg="'http://kuangkeng.github.io/keng-data-journalism/timeuseform/result2.html'";}
 
 $(".fb-share-button1").click(function(){
 
 FB.ui(
  {
   method: 'share',
-  href: fbresult
+  href: fbmsg
 }, function(response){});  
 
     });
@@ -615,4 +612,7 @@ FB.ui(
 
 
 
+
+   }
+});
 });
