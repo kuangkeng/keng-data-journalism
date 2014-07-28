@@ -581,12 +581,11 @@ $('a[data-text]').each(function(){
     });
 $.getScript('http://platform.twitter.com/widgets.js');
 
-
-
-
-
-
-
+var fbresult;
+if(sleep>0&&work>0){fbresult="'http://kuangkeng.github.io/keng-data-journalism/timeuseform/result1.html'";}
+if(sleep>0&&work<0){fbresult="'http://kuangkeng.github.io/keng-data-journalism/timeuseform/result1.html'";}
+if(sleep<0&&work>0){fbresult="'http://kuangkeng.github.io/keng-data-journalism/timeuseform/result2.html'";}
+if(sleep<0&&work<0){fbresult="'http://kuangkeng.github.io/keng-data-journalism/timeuseform/result2.html'";}
    }
 
 
@@ -599,7 +598,7 @@ $(".fb-share-button1").click(function(){
 FB.ui(
  {
   method: 'share',
-  href: 'http://kuangkeng.github.io/keng-data-journalism/timeuseform/result1.html'
+  href: fbresult
 }, function(response){});  
 
     });
