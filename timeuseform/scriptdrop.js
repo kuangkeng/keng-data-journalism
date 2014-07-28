@@ -594,20 +594,26 @@ $.getScript('http://platform.twitter.com/widgets.js');
 
 //Facebook SDK
 
-$(".fb-share-button").click(function(){
+$(".fb-share-button1").click(function(){
 
 FB.ui(
-{
-method: 'feed',
-name: "testing",
-link: "http://kuangkeng.github.io/keng-data-journalism/comiccon/index.html",
-picture: "http://kuangkeng.github.io/keng-data-journalism/comiccon/img/SDCC640-2.jpg",
-caption: "I love SDCC",
-description: "This works",
-message: ""
-});   
+ {
+  method: 'share',
+  href: 'http://kuangkeng.github.io/keng-data-journalism/timeuseform/result1.html'
+}, function(response){});  
 
     });
+
+$(".fb-share-button2").click(function(){
+
+FB.ui(
+ {
+  method: 'share',
+  href: 'http://kuangkeng.github.io/keng-data-journalism/timeuseform/result2.html'
+}, function(response){});  
+
+    });
+
 
 
 });
