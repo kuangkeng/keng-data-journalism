@@ -592,11 +592,13 @@ if(sleep<0&&work<0){fbmsg="http://kuangkeng.github.io/keng-data-journalism/timeu
 console.log("fbmsg: " + fbmsg);
 $(".fb-share-button1").click(function(){
 
-FB.ui(
- {
-  method: 'share',
-  href: fbmsg
-}, function(response){});  
+FB.ui({
+  method: 'share_open_graph',
+  action_type: 'og.likes',
+  action_properties: JSON.stringify({
+      object: fbmsg,
+  })
+}, function(response){});
 
     });
 
