@@ -590,7 +590,7 @@ if(sleep>0&&work<0){fbmsg="http://kuangkeng.github.io/keng-data-journalism/timeu
 if(sleep<0&&work>0){fbmsg="http://kuangkeng.github.io/keng-data-journalism/timeuseform/result3.html";}
 if(sleep<0&&work<0){fbmsg="http://kuangkeng.github.io/keng-data-journalism/timeuseform/result4.html";}
 console.log("fbmsg: " + fbmsg);
-$(".fb-share-button1").click(function(){
+$(".fb-share-button").click(function(){
 
 FB.ui(
  {
