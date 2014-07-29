@@ -585,11 +585,11 @@ $.getScript('http://platform.twitter.com/widgets.js');
 //Facebook SDK
 
 var twittermsg;
-if(sleep>0&&work>0){fbmsg="'http://kuangkeng.github.io/keng-data-journalism/timeuseform/result1.html'";}
-if(sleep>0&&work<0){fbmsg="'http://kuangkeng.github.io/keng-data-journalism/timeuseform/result1.html'";}
-if(sleep<0&&work>0){fbmsg="'http://kuangkeng.github.io/keng-data-journalism/timeuseform/result2.html'";}
-if(sleep<0&&work<0){fbmsg="'http://kuangkeng.github.io/keng-data-journalism/timeuseform/result2.html'";}
-
+if(sleep>0&&work>0){fbmsg="http://kuangkeng.github.io/keng-data-journalism/timeuseform/result1.html";}
+if(sleep>0&&work<0){fbmsg="http://kuangkeng.github.io/keng-data-journalism/timeuseform/result1.html";}
+if(sleep<0&&work>0){fbmsg="http://kuangkeng.github.io/keng-data-journalism/timeuseform/result2.html";}
+if(sleep<0&&work<0){fbmsg="http://kuangkeng.github.io/keng-data-journalism/timeuseform/result2.html";}
+console.log("fbmsg: " + fbmsg);
 $(".fb-share-button1").click(function(){
 
 FB.ui(
