@@ -574,10 +574,13 @@ if(sleep<0&&work>0){twittermsg="I work more and sleep less than fellow Americans
 if(sleep<0&&work<0){twittermsg="I sleep and work less than fellow Americans. What about you?";}
 else{"Do you sleep, work and play more than fellow Americans?";}
 
-console.log(twittermsg);
 
-$('a[data-text]').each(function(){
-    $(this).attr('data-text', twittermsg);
+var twitterurl = "'https://twitter.com/share?url=http://kuangkeng.github.io/keng-data-journalism/timeuseform/indexdropemo.html&text="+twittermsg+"&via=kuangkeng'";
+console.log("twittermsg: " + twittermsg);
+console.log("twitterurl: " + twitterurl);
+
+$('a[href="https://twitter.com/share"]').each(function(){
+    $(this).attr('href', twitterurl);
     });
 $.getScript('http://platform.twitter.com/widgets.js');
 
