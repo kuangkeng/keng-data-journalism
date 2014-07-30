@@ -594,7 +594,7 @@ $(".fb-share-button1").click(function(){
 
 FB.ui({
   method: 'share_open_graph',
-  action_type: 'og.take',
+  action_type: 'og.likes',
   action_properties: JSON.stringify({
       object: fbmsg,
   })
