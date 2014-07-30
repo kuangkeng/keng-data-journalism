@@ -62,9 +62,13 @@ input[type=text] {
  margin-right:10%;
 }
 
-.twitter-share-button1{
-  background: url("images/twitter-button.png") no-repeat;
-  border: 0px;
+.twitter-share-button{
+  float: left;
+}
+
+.facebook-share-button{
+  float: right;
+  cursor: pointer;
 }
 
 li.genderbox {
@@ -76,7 +80,7 @@ li.genderbox {
  }
 
 #bottomform, #sharebox {
-  width: 300px;
+  width: 54%;
   margin: 0 auto;
   text-align: center;
 }

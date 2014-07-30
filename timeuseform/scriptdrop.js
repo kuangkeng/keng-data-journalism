@@ -575,25 +575,25 @@ if(sleep<0&&work<0){twittermsg="I sleep and work less than fellow Americans. Wha
 else{"Do you sleep, work and play more than fellow Americans?";}
 
 
-var twitterurl = "'https://twitter.com/share?url=http://kuangkeng.github.io/keng-data-journalism/timeuseform/indexdropemo.html&text="+twittermsg+"&via=kuangkeng'";
+var twitterurl = 'https://twitter.com/share?url=http://kuangkeng.github.io/keng-data-journalism/timeuseform/indexdropemo.html&text='+twittermsg+'&via=kuangkeng';
 console.log("twittermsg: " + twittermsg);
 console.log("twitterurl: " + twitterurl);
 
 $('a[href="https://twitter.com/share"]').each(function(){
-    $(this).attr('href', twitterurl);
+    $(this).prop('href', twitterurl);
     });
 $.getScript('http://platform.twitter.com/widgets.js');
 
 
 //Facebook SDK
 
-var twittermsg;
+var fbmsg;
 if(sleep>0&&work>0){fbmsg="http://kuangkeng.github.io/keng-data-journalism/timeuseform/result1.html";}
 if(sleep>0&&work<0){fbmsg="http://kuangkeng.github.io/keng-data-journalism/timeuseform/result2.html";}
 if(sleep<0&&work>0){fbmsg="http://kuangkeng.github.io/keng-data-journalism/timeuseform/result3.html";}
 if(sleep<0&&work<0){fbmsg="http://kuangkeng.github.io/keng-data-journalism/timeuseform/result4.html";}
 console.log("fbmsg: " + fbmsg);
-$(".fb-share-button1").click(function(){
+$(".facebook-share-button").click(function(){
 
 FB.ui({
   method: 'share_open_graph',
