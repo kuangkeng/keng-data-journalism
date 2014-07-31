@@ -575,7 +575,7 @@ if(sleep<0&&work<0){twittermsg="I sleep and work less than fellow Americans. Wha
 else{"Do you sleep, work and play more than fellow Americans?";}
 
 
-var twitterurl = 'https://twitter.com/share?url=http://kuangkeng.github.io/keng-data-journalism/timeuseform/indexdropemo.html&text='+twittermsg+'&via=kuangkeng';
+var twitterurl = 'https://twitter.com/share?url=http://kuangkeng.github.io/keng-data-journalism/timeuseform/index.html&text='+twittermsg+'&via=kuangkeng';
 console.log("twittermsg: " + twittermsg);
 console.log("twitterurl: " + twitterurl);
 
