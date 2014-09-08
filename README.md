@@ -1,4 +1,4 @@
 keng-data-journalism
 ====================
 
-Project of Data Journalism course Studio 20
+Projects done for Studio 20, a NYU's MA journalism program focuses on digital innovation and new media.
