@@ -1,5 +1,6 @@
 {
-"links": [{"source":"African Development Bank","target":"Guinea","value":1000000},
+"links": [
+{"source":"African Development Bank","target":"Guinea","value":1000000},
 {"source":"African Development Bank","target":"Sierra Leone","value":1000000},
 {"source":"African Development Bank","target":"Liberia","value":1000000},
 {"source":"African Development Bank","target":"Nigeria","value":1000000},
