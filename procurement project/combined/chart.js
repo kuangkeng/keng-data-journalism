@@ -4,7 +4,7 @@ var units = "Widgets";
  
 var margin = {top: 10, right: 10, bottom: 10, left: 10},
     width = 900 - margin.left - margin.right,
-    height = 2250 - margin.top - margin.bottom;
+    height = 500 - margin.top - margin.bottom;
  
 var formatNumber = d3.format(",.0f"),    // zero decimal places
     format = function(d) { return formatNumber(d) ; },
