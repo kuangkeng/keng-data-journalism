@@ -66,7 +66,31 @@
 {"source":"Sweden","target":"Sierra Leone","value":197740},
 {"source":"Sweden","target":"Guinea","value":296033},
 {"source":"Sweden","target":"Liberia","value":315890},
-{"source":"Sweden","target":"Liberia","value":725163}
+{"source":"Sweden","target":"Liberia","value":725163},
+{"source":"UNICEF Japan","target":"Liberia","value":100000},
+{"source":"UNICEF Korea","target":"Liberia","value":100000},
+{"source":"UNICEF UK","target":"Liberia","value":83056},
+{"source":"UK","target":"Sierra Leone","value":340136},
+{"source":"UK","target":"Liberia","value":340136},
+{"source":"UK","target":"Sierra Leone","value":829197},
+{"source":"UK","target":"Liberia","value":844595},
+{"source":"UK","target":"Sierra Leone","value":1689189},
+{"source":"UK","target":"Sierra Leone","value":2210884},
+{"source":"UK","target":"Sierra Leone","value":4222973},
+{"source":"USA","target":"Liberia","value":393125},
+{"source":"USA","target":"Liberia","value":680333},
+{"source":"USA","target":"Liberia","value":758864},
+{"source":"USA","target":"Liberia","value":1000000},
+{"source":"USA","target":"Liberia","value":2085686},
+{"source":"USA","target":"Liberia","value":2969196},
+{"source":"USA","target":"Liberia","value":4519205},
+{"source":"USA","target":"Liberia","value":4906604},
+{"source":"UNICEF USA","target":"Liberia","value":95000},
+{"source":"UNICEF USA","target":"Guinea","value":244000},
+{"source":"UNICEF USA","target":"Sierra Leone","value":324000},
+{"source":"UNICEF USA","target":"Liberia ","value":432000},
+{"source":"Various Donors","target":"Guinea","value":206508},
+{"source":"Various Donors","target":"Sierra Leone","value":264348}
 ] ,
 "nodes": [
 {"name":"African Development Bank"},
@@ -93,6 +117,13 @@
 {"name":"Private"},
 {"name":"Société Anglogold Ashanti de Guinée"},
 {"name":"Spain"},
-{"name":"Sweden"}
+{"name":"Sweden"},
+{"name":"UK"},
+{"name":"UNICEF Japan"},
+{"name":"UNICEF Korea"},
+{"name":"UNICEF UK"},
+{"name":"UNICEF USA"},
+{"name":"USA"},
+{"name":"Various Donors"}
 ] }
 
