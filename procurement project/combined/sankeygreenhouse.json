@@ -84,7 +84,13 @@
 {"source":"USA","target":"Liberia","value":2085686},
 {"source":"USA","target":"Liberia","value":2969196},
 {"source":"USA","target":"Liberia","value":4519205},
-{"source":"USA","target":"Liberia","value":4906604}
+{"source":"USA","target":"Liberia","value":4906604},
+{"source":"UNICEF USA","target":"Liberia","value":95000},
+{"source":"UNICEF USA","target":"Guinea","value":244000},
+{"source":"UNICEF USA","target":"Sierra Leone","value":324000},
+{"source":"UNICEF USA","target":"Liberia ","value":432000},
+{"source":"Various Donors","target":"Guinea","value":206508},
+{"source":"Various Donors","target":"Sierra Leone","value":264348}
 ] ,
 "nodes": [
 {"name":"African Development Bank"},
@@ -116,6 +122,8 @@
 {"name":"UNICEF Japan"},
 {"name":"UNICEF Korea"},
 {"name":"UNICEF UK"},
-{"name":"USA"}
+{"name":"USA"},
+{"name":"UNICEF USA"},
+{"name":"Various Donors"}
 ] }
 
