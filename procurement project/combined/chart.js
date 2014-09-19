@@ -4,7 +4,7 @@ var units = "Widgets";
  
 var margin = {top: 10, right: 10, bottom: 10, left: 10},
     width = 900 - margin.left - margin.right,
-    height = 550 - margin.top - margin.bottom;
+    height = 1550 - margin.top - margin.bottom;
  
 var formatNumber = d3.format(",.0f"),    // zero decimal places
     format = function(d) { return formatNumber(d) ; },
@@ -22,7 +22,7 @@ var svg = d3.select("#chart").append("svg")
 var sankey = d3.sankey()
     .nodeWidth(40)
     .nodePadding(5)
-    .size([700, 500]);
+    .size([700, 1500]);
  
 var path = sankey.link();
  
