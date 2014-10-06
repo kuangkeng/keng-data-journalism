@@ -4,8 +4,8 @@ var units = "Widgets";
 
 //**CUSTOMIZATION: change the size of the canvas (which wraps the chart) here, then another part down below
 var margin = {top: 10, right: 10, bottom: 10, left: 10},
-    width = 620 - margin.left - margin.right,
-    height = 420 - margin.top - margin.bottom;
+    width = 700 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom;
  
 var formatNumber = d3.format(",.0f"),    // zero decimal places
     format = function(d) { return formatNumber(d) ; },
