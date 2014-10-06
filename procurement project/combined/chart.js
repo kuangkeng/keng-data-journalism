@@ -2,7 +2,7 @@
 
 var units = "Widgets";
 
-//change the size of the chart by changing the number here: 
+//**CUSTOMIZATION: change the size of the chart by changing the number in this part, then another part down below
 var margin = {top: 10, right: 10, bottom: 10, left: 10},
     width = 600 - margin.left - margin.right,
     height = 600 - margin.top - margin.bottom;
@@ -19,11 +19,11 @@ var svg = d3.select("#chart").append("svg")
     .attr("transform", 
           "translate(" + margin.left + "," + margin.top + ")");
  
-// Set the sankey diagram properties
+//**CUSTOMIZATION: change the size of the chart by changing the number in this part also
 var sankey = d3.sankey()
     .nodeWidth(40)
     .nodePadding(5)
-    .size([700, 1500]);
+    .size([600, 600]);
  
 var path = sankey.link();
  
