@@ -88,7 +88,8 @@ d3.json("sankeygreenhouse.json", function(error, graph) {
         
     .style("stroke", function(d) { 
       return d3.rgb(d.color).darker(2); })
-    
+
+// add the node titles
     .append("title")
       .text(function(d) { 
       return d.name + "\n" + "Total contract value: " + "RM" + format(d.value); });

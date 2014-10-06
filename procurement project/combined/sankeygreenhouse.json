@@ -1,5 +1,9 @@
 {
-"links": [
+"links": 
+
+//insert your data json code here, the one with "source", "target" and "value" as column head
+
+[
 {"source":"AHMAD ZAKI","target":"KEMENTERIAN KERJA RAYA 11.42%","value":309374000},
 {"source":"AHMAD ZAKI","target":"KEMENTERIAN KERJA RAYA 11.42%","value":309374000},
 {"source":"AHMAD ZAKI","target":"KEMENTERIAN WILAYAH PERSEKUTUAN 1.37%","value":40520193},
@@ -910,7 +914,12 @@
 {"source":"PERLIS MARINE ENGINEERING","target":"JABATAN PERDANA MENTERI 13.94%","value":42880000},
 {"source":"TERAS ERAMAJU","target":"KEMENTERIAN KEMAJUAN LUAR BANDAR DAN WILAYAH 12.73%","value":42028491}
 ] ,
-"nodes": [
+
+"nodes": 
+
+//insert your json data code here, the one with "name" as column head
+
+[
 {"name":"1.ROYCE PHARMA 2.FIDIN UNIVERSAL"},
 {"name":"AHMAD ZAKI"},
 {"name":"ALAM JITU BINA"},
