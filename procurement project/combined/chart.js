@@ -4,8 +4,8 @@ var units = "Widgets";
 
 //**CUSTOMIZATION: change the size of the canvas (which wraps the chart) here, then another part down below
 var margin = {top: 10, right: 10, bottom: 10, left: 10},
-    width = 800 - margin.left - margin.right,
-    height = 700 - margin.top - margin.bottom;
+    width = 620 - margin.left - margin.right,
+    height = 420 - margin.top - margin.bottom;
  
 var formatNumber = d3.format(",.0f"),    // zero decimal places
     format = function(d) { return formatNumber(d) ; },
@@ -21,7 +21,7 @@ var svg = d3.select("#chart").append("svg")
  
 var sankey = d3.sankey()
 //**CUSTOMIZATION: change the size of the chart here. The size should be smaller than the canvas.
-    .size([600, 600])
+    .size([600, 400])
 //**CUSTOMIZATION: change the size and padding of the node here. 
     .nodeWidth(40)
     .nodePadding(5);
