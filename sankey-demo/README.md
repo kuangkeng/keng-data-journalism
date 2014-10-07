@@ -21,11 +21,11 @@ Input Data
 Customization
 ====================
 <ol>
- <li><strong>Size of the canvas and chart:</strong> Canvas is the invisible container that houses the chart. Both can be customized in chart.js. Look for the comment with '**CUSTOMIZATION'.</li>
+ <li><strong>Size of the canvas and chart:</strong> Canvas is the invisible container that houses the chart. Both can be customized in chart.js. Look for the comment with **CUSTOMIZATION.</li>
  <li><strong>Number format of 'value':</strong> Can be customized in chart.js.</li>
  <li><strong>Size of nodes and the space between nodes:</strong> Can be customized in chart.js.</li>
  <li><strong>Text in the mouseover tooltip of nodes and links:</strong> Can be customized in chart.js.</li>
- <li><strong>Opacity of nodes:</strong> Can be customized in style.css. Look for the comment with '**CUSTOMIZATION'.</li>
+ <li><strong>Opacity of nodes:</strong> Can be customized in style.css. Look for the comment with **CUSTOMIZATION.</li>
  <li><strong>Text font beside nodes:</strong> Can be customized in style.css.</li>
  <li><strong>Color of links:</strong> Can be customized in style.css.</li>
 </ol>  
