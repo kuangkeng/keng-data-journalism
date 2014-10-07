@@ -5,8 +5,8 @@ var units = "Widgets";
 //**CUSTOMIZATION: change the canvas size that wraps the chart. after this you need to change the chart size too in another part below.
 //The difference between the canvas size and the chart size is the space where the nodes can be moved around.
 var margin = {top: 10, right: 10, bottom: 10, left: 10},
-    width = 300 - margin.left - margin.right,
-    height = 100 - margin.top - margin.bottom;
+    width = 700 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom;
  
 //**CUSTOMIZATION: change the number format of "value"
 var formatNumber = d3.format(",.0f"),    // zero decimal places
@@ -22,7 +22,7 @@ var svg = d3.select("#chart").append("svg")
  
 var sankey = d3.sankey()
 //**CUSTOMIZATION: change the chart size. The size should be smaller than the canvas.
-    .size([250, 70])
+    .size([600, 400])
 //**CUSTOMIZATION: change the node size and padding (space between nodes)
     .nodeWidth(40)
     .nodePadding(5);
