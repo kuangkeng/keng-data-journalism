@@ -31,12 +31,6 @@
   stroke-opacity: .2;
 }
 
-.link text {
-  text-shadow: 0 1px 0 #fff;
-  font-family:arial;
-  font-size: 14px;
-}
-
 /* **CUSTOMIZATION: Customize the color and opacity of links when mouseover. */  
 .link:hover {
   stroke-opacity: .5;
