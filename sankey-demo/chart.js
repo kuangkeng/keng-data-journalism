@@ -86,8 +86,7 @@ d3.json("data.json", function(error, graph) {
       //.filter(function(d) { return d.x > width / 2; })
 
 //**CUSTOMIZATION: customize the color of the nodes. "#3F9AF2" is color for nodes on right side, 
-    .attr("fill", function(d) 
-    function(d) { return d.color})
+    .attr("fill", function(d) { return d.color})
 
     //{if (d.x > width / 2) {return "#3F9AF2"}  
     //else    return d.color = color(d.name.replace(/ .*/, ""));})   
