@@ -21,9 +21,9 @@ var svg = d3.select("#chart").append("svg")
           "translate(" + margin.left + "," + margin.top + ")");
  
 var sankey = d3.sankey()
-//**CUSTOMIZATION: change the size of the chart. The size should be smaller than the canvas.
+//**CUSTOMIZATION: change the chart size. The size should be smaller than the canvas.
     .size([600, 400])
-//**CUSTOMIZATION: change the size and padding of the nodes
+//**CUSTOMIZATION: change the node size and padding (space between nodes)
     .nodeWidth(40)
     .nodePadding(5);
  
@@ -79,14 +79,8 @@ d3.json("data.json", function(error, graph) {
   node.append("rect")
       .attr("height", function(d) { return d.dy; })
       .attr("width", sankey.nodeWidth())
-      
-      //.style("fill", function(d) { 
-      //return d.color = color(d.name.replace(/ .*/, "")); })
-      //.filter(function(d) { return d.x > width / 2; })
-
-//**CUSTOMIZATION: customize the color of the nodes. "#3F9AF2" is color for nodes on right side, 
-    .attr("fill", function(d) { return d.color}) 
-    .style("stroke", function(d) { 
+      .attr("fill", function(d) { return d.color}) 
+      .style("stroke", function(d) { 
       return d3.rgb(d.color).darker(2); })
 
 //**CUSTOMIZATION: customize the mouseover tooltip of nodes. 
