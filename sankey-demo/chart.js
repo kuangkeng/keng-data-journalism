@@ -10,8 +10,8 @@ var margin = {top: 10, right: 10, bottom: 10, left: 10},
  
 //**CUSTOMIZATION: change the number format of "value"
 var formatNumber = d3.format(",.0f"),    // zero decimal places
-    format = function(d) { return formatNumber(d) ; },
-    color = d3.scale.category20b();
+    format = function(d) { return formatNumber(d) ; };
+    //color = d3.scale.category20b();
  
 // append the svg canvas to the page
 var svg = d3.select("#chart").append("svg")
@@ -87,8 +87,10 @@ d3.json("data.json", function(error, graph) {
 
 //**CUSTOMIZATION: customize the color of the nodes. "#3F9AF2" is color for nodes on right side, 
     .attr("fill", function(d) 
-    {if (d.x > width / 2) {return "#3F9AF2"}  
-    else    return d.color = color(d.name.replace(/ .*/, ""));})   
+    function(d) { return d.color})
+
+    //{if (d.x > width / 2) {return "#3F9AF2"}  
+    //else    return d.color = color(d.name.replace(/ .*/, ""));})   
         
     .style("stroke", function(d) { 
       return d3.rgb(d.color).darker(2); })
