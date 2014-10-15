@@ -1,3 +1,46 @@
+@font-face{ 
+  font-family: 'solido';
+  src: url('solido-extrabold/solido-extrabold-webfont.eot');
+  src: url('solido-extrabold/solido-extrabold-webfont?#iefix') format('embedded-opentype'),
+       url('solido-extrabold/solido-extrabold-webfont.woff') format('woff'),
+       url('solido-extrabold/solido-extrabold-webfont.ttf') format('truetype'),
+       url('solido-extrabold/solido-extrabold-webfont.svg#webfont') format('svg');
+  font-weight: bold;
+}
+
+@font-face{ 
+  font-family: 'solido';
+  src: url('solido-extrabold/solido-extrabolditalic-webfont.eot');
+  src: url('solido-extrabold/solido-extrabolditalic-webfont?#iefix') format('embedded-opentype'),
+       url('solido-extrabold/solido-extrabolditalic-webfont.woff') format('woff'),
+       url('solido-extrabold/solido-extrabolditalic-webfont.ttf') format('truetype'),
+       url('solido-extrabold/solido-extrabolditalic-webfont.svg#webfont') format('svg');
+  font-weight: bold;
+  font-style:italic;
+}
+
+@font-face{ 
+  font-family: 'solido';
+  src: url('solido-medium/solido-medium-webfont.eot');
+  src: url('solido-medium/solido-medium-webfont?#iefix') format('embedded-opentype'),
+       url('solido-medium/solido-medium-webfont.woff') format('woff'),
+       url('solido-medium/solido-medium-webfont.ttf') format('truetype'),
+       url('solido-medium/solido-medium-webfont.svg#webfont') format('svg');
+  font-weight: normal;
+}
+
+@font-face{ 
+  font-family: 'solido';
+  src: url('solido-medium/solido-mediumitalic-webfont.eot');
+  src: url('solido-medium/solido-mediumitalic-webfont?#iefix') format('embedded-opentype'),
+       url('solido-medium/solido-mediumitalic-webfont.woff') format('woff'),
+       url('solido-medium/solido-mediumitalic-webfont.ttf') format('truetype'),
+       url('solido-medium/solido-mediumitalic-webfont.svg#webfont') format('svg');
+  font-weight: normal;
+  font-style:italic;
+}
+
+
 .axis path,
 .axis line {
   fill: none;
@@ -20,7 +63,7 @@
 .node text {
   pointer-events: none;
   text-shadow: 0 1px 0 #fff;
-  font-family:arial;
+  font-family:solido;
   font-size: 14px;
 }
  
