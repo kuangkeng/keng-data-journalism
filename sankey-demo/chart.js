@@ -12,11 +12,19 @@ var margin = {top: 10, right: 10, bottom: 10, left: 10},
 var formatNumber = d3.format(",.0f"),    // zero decimal places
     format = function(d) { return formatNumber(d) ; };
 
-//define tipsy function
-var tip = d3.tip()
+//**CUSTOMIZATION: customize the position and content of mouseover tooltip of nodes. 
+//"d.source.name" = source; "d.target.name" = target; "format(d.value)" = value.
+var tipnode = d3.tip()
   .attr('class', 'd3-tip')
-  .offset([-10, 0])
-  .html(function(d) {return d.name + "\n" + "Total value: " + "$" + format(d.value);});
+  .offset([70, 60])
+  .html(function(d) {return d.name + "<br>" + "Total value: " + "$" + format(d.value);});
+
+//**CUSTOMIZATION: customize the position and content of mouseover tooltip of links. 
+//"d.source.name" = source; "d.target.name" = target; "format(d.value)" = value.
+var tiplink = d3.tip()
+  .attr('class', 'd3-tip')
+  .offset([50, 0])
+  .html(function(d) {return d.source.name + " to " + d.target.name + "<br>" + "$" + format(d.value);});
  
 // append the svg canvas to the page
 var svg = d3.select("#chart").append("svg")
@@ -27,12 +35,13 @@ var svg = d3.select("#chart").append("svg")
           "translate(" + margin.left + "," + margin.top + ")");
 
 //call tipsy function
-svg.call(tip);
+svg.call(tipnode);
+svg.call(tiplink);
  
-var sankey = d3.sankey()
-//**CUSTOMIZATION: change the chart size. The size should be smaller than the canvas.
-    .size([600, 400])
+//**CUSTOMIZATION: change the chart size. The size should be smaller than the canvas. 
 //**CUSTOMIZATION: change the node size and padding (space between nodes)
+var sankey = d3.sankey()
+    .size([600, 400])
     .nodeWidth(40)
     .nodePadding(5);
  
@@ -63,13 +72,9 @@ d3.json("data.json", function(error, graph) {
       .attr("class", "link")
       .attr("d", path)
       .style("stroke-width", function(d) { return Math.max(1, d.dy); })
-      .sort(function(a, b) { return b.dy - a.dy; });
- 
-//**CUSTOMIZATION: customize the mouseover tooltip of links. 
-//"d.source.name" is the name of the source; "d.target.name" is the name of the target, and "format(d.value)" is the number of the value.
-  link.append("title")
-        .text(function(d) 
-        {return d.source.name + " to " + d.target.name + "\n" + "$" + format(d.value); });
+      .sort(function(a, b) { return b.dy - a.dy; })
+      .on('mouseover', tiplink.show)
+      .on('mouseout', tiplink.hide);;
  
 // add in the nodes
   var node = svg.append("g").selectAll(".node")
@@ -91,15 +96,8 @@ d3.json("data.json", function(error, graph) {
       .attr("fill", function(d) { return d.color}) 
       .style("stroke", function(d) { 
       return d3.rgb(d.color).darker(2); })
-      .on('mouseover', tip.show)
-      .on('mouseout', tip.hide);;
-      
-
-//**CUSTOMIZATION: customize the mouseover tooltip of nodes. 
-//"d.name" is the name of the source or target of the node and "format(d.value)" is the number of the value.
-//    .append("title")
-//      .text(function(d) { 
-//      return d.name + "\n" + "Total value: " + "$" + format(d.value); });
+      .on('mouseover', tipnode.show)
+      .on('mouseout', tipnode.hide);
  
 // add in the title for the nodes
   node.append("text")
