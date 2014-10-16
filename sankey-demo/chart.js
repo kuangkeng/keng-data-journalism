@@ -11,6 +11,12 @@ var margin = {top: 10, right: 10, bottom: 10, left: 10},
 //**CUSTOMIZATION: change the number format of "value"
 var formatNumber = d3.format(",.0f"),    // zero decimal places
     format = function(d) { return formatNumber(d) ; };
+
+//define tipsy function
+var tip = d3.tip()
+  .attr('class', 'd3-tip')
+  .offset([-10, 0])
+  .html(function(d) {return d.name + "\n" + "Total value: " + "$" + format(d.value);});
  
 // append the svg canvas to the page
 var svg = d3.select("#chart").append("svg")
@@ -19,6 +25,9 @@ var svg = d3.select("#chart").append("svg")
     .append("g")
     .attr("transform", 
           "translate(" + margin.left + "," + margin.top + ")");
+
+//call tipsy function
+svg.call(tip);
  
 var sankey = d3.sankey()
 //**CUSTOMIZATION: change the chart size. The size should be smaller than the canvas.
@@ -75,12 +84,6 @@ d3.json("data.json", function(error, graph) {
       this.parentNode.appendChild(this); })
       .on("drag", dragmove));
  
-//define tipsy function
-var tip = d3.tip()
-  .attr('class', 'd3-tip')
-  .offset([-10, 0])
-  .html(function(d) {return d.name + "\n" + "Total value: " + "$" + format(d.value);});
-
 // add the rectangles for the nodes
   node.append("rect")
       .attr("height", function(d) { return d.dy; })
@@ -88,8 +91,10 @@ var tip = d3.tip()
       .attr("fill", function(d) { return d.color}) 
       .style("stroke", function(d) { 
       return d3.rgb(d.color).darker(2); })
-      .call(tip);
+      .on('mouseover', tip.show)
+      .on('mouseout', tip.hide);;
       
+
 //**CUSTOMIZATION: customize the mouseover tooltip of nodes. 
 //"d.name" is the name of the source or target of the node and "format(d.value)" is the number of the value.
 //    .append("title")
