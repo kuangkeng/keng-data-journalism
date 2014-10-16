@@ -1,7 +1,7 @@
 A D3 Sankey Diagram Documentation for Foreign Policy
 ====================
-Here are the steps to produce and customize a sankey diagram using d3.js. The code was modified from <a href="https://gist.github.com/d3noob/5015397">d3noob version</a> which used d3.js and the <a href="https://github.com/d3/d3-plugins/tree/master/sankey">sankey plugin</a>. 
-You can view the <a href="http://kuangkeng.github.io/keng-data-journalism/sankey-demo/index.html">demo chart</a> here.
+Here are the steps to produce and customize a sankey diagram using d3.js. The code was modified from <a href="https://gist.github.com/d3noob/5015397">d3noob version</a> which used d3.js and the <a href="https://github.com/d3/d3-plugins/tree/master/sankey">sankey plugin</a>. I also used <a href="https://github.com/Caged/d3-tip">d3-tip</a> from Justin Palmer to customize the mouseover tooltip.
+You can view the demo chart <a href="http://kuangkeng.github.io/keng-data-journalism/sankey-demo/index.html">here</a> .
 
 Prepare Data
 ====================
@@ -25,10 +25,11 @@ Customization
  <li><strong>Size of the canvas and chart:</strong> Canvas is the invisible container that houses the chart. Both can be customized in chart.js. Look for the comment with **CUSTOMIZATION.</li>
  <li><strong>Number format of 'value':</strong> Can be customized in chart.js.</li>
  <li><strong>Size of nodes and the space between nodes:</strong> Can be customized in chart.js.</li>
- <li><strong>Text in the mouseover tooltip of nodes and links:</strong> Can be customized in chart.js.</li>
+ <li><strong>Position and content of the mouseover tooltip of nodes and links:</strong> Can be customized in chart.js.</li>
  <li><strong>Opacity of nodes:</strong> Can be customized in style.css. Look for the comment with **CUSTOMIZATION.</li>
- <li><strong>Text font beside nodes:</strong> Can be customized in style.css.</li>
+ <li><strong>Font beside nodes:</strong> Can be customized in style.css.</li>
  <li><strong>Color of links:</strong> Can be customized in style.css.</li>
+ <li><strong>Style of tooltip:</strong> Can be customized in style.css.</li>
 </ol>  
 
 
