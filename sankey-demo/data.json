@@ -18,13 +18,13 @@
 {"source":"Italy","target":"South America","value":600000}
 ] ,
 "nodes": [
-{"name":"US","color":"#e6550d"},
-{"name":"UK","color":"#fd8d3c"},
-{"name":"Germany","color":"#3182bd"},
-{"name":"Spain","color":"#756bb1"},
-{"name":"France","color":"#637939"},
-{"name":"Italy","color":"#8c564b"},
-{"name":"Asia","color":"#a55194"},
+{"name":"US","color":"#FF0000"},
+{"name":"UK","color":"#FF931E"},
+{"name":"Germany","color":"#000000"},
+{"name":"Spain","color":"#7AC943"},
+{"name":"France","color":"#3FA9F5"},
+{"name":"Italy","color":"#fbc48b"},
+{"name":"Asia","color":"#f7b7c"},
 {"name":"Africa","color":"#636363"},
 {"name":"Middle East","color":"#e377c2"},
 {"name":"South America","color":"#bcbd22"}

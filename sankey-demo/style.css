@@ -82,13 +82,13 @@
 /* **CUSTOMIZATION: Customize the color and opacity of links. */ 
 .link {
   fill: none;
-  stroke: red;
+  stroke: #7b7b7b;
   stroke-opacity: .2;
 }
 
 /* **CUSTOMIZATION: Customize the color and opacity of links when mouseover. */  
 .link:hover {
   stroke-opacity: .5;
-  stroke: red;
+  stroke: #7b7b7b;
 }
  
