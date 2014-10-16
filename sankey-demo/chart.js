@@ -58,7 +58,7 @@ d3.json("data.json", function(error, graph) {
  
 //**CUSTOMIZATION: customize the mouseover tooltip of links. 
 //"d.source.name" is the name of the source; "d.target.name" is the name of the target, and "format(d.value)" is the number of the value.
-  link.append("text")
+  link.append("title")
         .text(function(d) 
         {return d.source.name + " to " + d.target.name + "\n" + "$" + format(d.value); });
  
@@ -85,7 +85,7 @@ d3.json("data.json", function(error, graph) {
 
 //**CUSTOMIZATION: customize the mouseover tooltip of nodes. 
 //"d.name" is the name of the source or target of the node and "format(d.value)" is the number of the value.
-    .append("text")
+    .append("title")
       .text(function(d) { 
       return d.name + "\n" + "Total value: " + "$" + format(d.value); });
  
