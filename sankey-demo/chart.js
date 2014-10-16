@@ -58,10 +58,9 @@ d3.json("data.json", function(error, graph) {
  
 //**CUSTOMIZATION: customize the mouseover tooltip of links. 
 //"d.source.name" is the name of the source; "d.target.name" is the name of the target, and "format(d.value)" is the number of the value.
-  link.append("title")
+  link.append("text")
         .text(function(d) 
-        {return d.source.name + " to " + d.target.name + "\n" + "$" + format(d.value); })
-        .attr("font-size", "20px");
+        {return d.source.name + " to " + d.target.name + "\n" + "$" + format(d.value); });
  
 // add in the nodes
   var node = svg.append("g").selectAll(".node")
@@ -86,10 +85,9 @@ d3.json("data.json", function(error, graph) {
 
 //**CUSTOMIZATION: customize the mouseover tooltip of nodes. 
 //"d.name" is the name of the source or target of the node and "format(d.value)" is the number of the value.
-    .append("title")
+    .append("text")
       .text(function(d) { 
-      return d.name + "\n" + "Total value: " + "$" + format(d.value); })
-      .attr("font-size", "20px");
+      return d.name + "\n" + "Total value: " + "$" + format(d.value); });
  
 // add in the title for the nodes
   node.append("text")
