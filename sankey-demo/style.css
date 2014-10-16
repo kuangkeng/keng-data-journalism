@@ -67,10 +67,8 @@
   font-size: 18px;
 }
 
-.link-tooltip .node-tooltip {
-  text-shadow: 0 1px 0 #fff;
+.link-tooltip {
   font-family:solido;
-  font-size: 18px;
 }
  
 /* **CUSTOMIZATION: Customize the color and opacity of links. */ 
