@@ -75,6 +75,12 @@ d3.json("data.json", function(error, graph) {
       this.parentNode.appendChild(this); })
       .on("drag", dragmove));
  
+//define tipsy function
+var tip = d3.tip()
+  .attr('class', 'd3-tip')
+  .offset([-10, 0])
+  .html(function(d) {return d.name + "\n" + "Total value: " + "$" + format(d.value);});
+
 // add the rectangles for the nodes
   node.append("rect")
       .attr("height", function(d) { return d.dy; })
@@ -82,12 +88,13 @@ d3.json("data.json", function(error, graph) {
       .attr("fill", function(d) { return d.color}) 
       .style("stroke", function(d) { 
       return d3.rgb(d.color).darker(2); })
-
+      .call(tip);
+      
 //**CUSTOMIZATION: customize the mouseover tooltip of nodes. 
 //"d.name" is the name of the source or target of the node and "format(d.value)" is the number of the value.
-    .append("title")
-      .text(function(d) { 
-      return d.name + "\n" + "Total value: " + "$" + format(d.value); });
+//    .append("title")
+//      .text(function(d) { 
+//      return d.name + "\n" + "Total value: " + "$" + format(d.value); });
  
 // add in the title for the nodes
   node.append("text")

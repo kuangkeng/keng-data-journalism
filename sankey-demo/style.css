@@ -67,6 +67,15 @@
   font-size: 18px;
 }
 
+/* **CUSTOMIZATION: Customize the tooltip. */ 
+.d3-tip {
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  border-radius: 2px;
+  font-family:'Arimo';
+  font-size: 14px;
+}
  
 /* **CUSTOMIZATION: Customize the color and opacity of links. */ 
 .link {
