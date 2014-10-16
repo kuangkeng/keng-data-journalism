@@ -64,7 +64,19 @@
   pointer-events: none;
   text-shadow: 0 1px 0 #fff;
   font-family:solido;
-  font-size: 14px;
+  font-size: 18px;
+}
+
+.node title {
+  text-shadow: 0 1px 0 #fff;
+  font-family:solido;
+  font-size: 18px;
+}
+
+.link title {
+  text-shadow: 0 1px 0 #fff;
+  font-family:solido;
+  font-size: 18px;
 }
  
 /* **CUSTOMIZATION: Customize the color and opacity of links. */ 
