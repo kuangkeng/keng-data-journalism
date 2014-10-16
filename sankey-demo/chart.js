@@ -61,7 +61,7 @@ d3.json("data.json", function(error, graph) {
   link.append("title")
         .text(function(d) 
         {return d.source.name + " to " + d.target.name + "\n" + "$" + format(d.value); })
-        .attr("class", "link-tooltip");
+        .attr("font-size", "20px");
  
 // add in the nodes
   var node = svg.append("g").selectAll(".node")
@@ -89,7 +89,7 @@ d3.json("data.json", function(error, graph) {
     .append("title")
       .text(function(d) { 
       return d.name + "\n" + "Total value: " + "$" + format(d.value); })
-      .attr("class", "node-tooltip");
+      .attr("font-size", "20px");
  
 // add in the title for the nodes
   node.append("text")
