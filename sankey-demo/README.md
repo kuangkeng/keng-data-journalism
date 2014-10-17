@@ -32,7 +32,7 @@ Customization
  <li><strong>Font beside nodes:</strong> Can be customized in style.css.</li>
  <li><strong>Color of links:</strong> Can be customized in style.css.</li>
  <li><strong>Style of tooltip:</strong> Can be customized in style.css.</li>
- <li>The fonts used in the chart is Solido by <a href="http://www.foreignpolicy.com/">Foreign Policy magazine</a>. The font files are in 2 folders - 'solido-extrabold' and 'solido-medium'.</li>
+ <li>The font used in the chart is Solido by <a href="http://www.foreignpolicy.com/">Foreign Policy magazine</a>. The font files are in 2 folders - 'solido-extrabold' and 'solido-medium'.</li>
 </ol>  
 
 
