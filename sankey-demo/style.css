@@ -91,7 +91,7 @@
   stroke: #7b7b7b;
 }
 
-.chart:after{
+#chart:after{
   position: absolute;
   bottom:-3px;
   left:100%;
