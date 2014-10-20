@@ -92,6 +92,7 @@
 }
 
 #chart:after{
-  content:url(".\logo.jpg");
+  left:90%;
+  content:url("logo.jpg");
 }
  
