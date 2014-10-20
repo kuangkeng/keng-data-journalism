@@ -6,7 +6,7 @@ var units = "Widgets";
 //The difference between the canvas size and the chart size is the space where the nodes can be moved around.
 var margin = {top: 10, right: 10, bottom: 10, left: 10},
     width = 550 - margin.left - margin.right,
-    height = 500 - margin.top - margin.bottom;
+    height = 450 - margin.top - margin.bottom;
  
 //**CUSTOMIZATION: change the number format of "value"
 var formatNumber = d3.format(",.0f"),    // zero decimal places
