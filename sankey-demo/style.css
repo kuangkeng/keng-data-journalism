@@ -90,10 +90,3 @@
   stroke-opacity: .5;
   stroke: #7b7b7b;
 }
-
-#chart:after{
-  position:absolute;
-  left:0%;
-  content:url("logo.jpg");
-}
- 
