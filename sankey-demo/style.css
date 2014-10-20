@@ -92,9 +92,10 @@
 }
 
 #chart:after{
+  background-color: black;
   position: absolute;
   bottom:-3px;
   left:100%;
-  content:url("logo.jpg");
+  content:url(".\logo.jpg");
 }
  
