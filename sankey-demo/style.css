@@ -92,7 +92,8 @@
 }
 
 #chart:after{
-  left:90%;
+  position:absolute;
+  left:0%;
   content:url("logo.jpg");
 }
  
