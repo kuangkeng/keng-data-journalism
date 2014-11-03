@@ -41,7 +41,7 @@ svg.call(tiplink);
 //**CUSTOMIZATION: change the chart size. The size should be smaller than the canvas. 
 //**CUSTOMIZATION: change the node size and padding (space between nodes)
 var sankey = d3.sankey()
-    .size([500, 400])
+    .size([450, 400])
     .nodeWidth(40)
     .nodePadding(5);
  
