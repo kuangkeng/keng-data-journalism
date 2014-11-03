@@ -1,0 +1,77 @@
+
+/*
+ * Foreign Policy Theme
+ * ----------
+ */
+
+ @font-face{ 
+  font-family: 'solido';
+  src: url('./solido-extrabold-webfont.eot');
+  src: url('./solido-extrabold-webfont?#iefix') format('embedded-opentype'),
+       url('./solido-extrabold-webfont.woff') format('woff'),
+       url('./solido-extrabold-webfont.ttf') format('truetype'),
+       url('./solido-extrabold-webfont.svg#webfont') format('svg');
+  font-weight: bold;
+}
+
+@font-face{ 
+  font-family: 'solido';
+  src: url('./solido-extrabolditalic-webfont.eot');
+  src: url('./solido-extrabolditalic-webfont?#iefix') format('embedded-opentype'),
+       url('./solido-extrabolditalic-webfont.woff') format('woff'),
+       url('./solido-extrabolditalic-webfont.ttf') format('truetype'),
+       url('./solido-extrabolditalic-webfont.svg#webfont') format('svg');
+  font-weight: bold;
+  font-style:italic;
+}
+
+@font-face{ 
+  font-family: 'solido';
+  src: url('./solido-medium-webfont.eot');
+  src: url('./solido-medium-webfont?#iefix') format('embedded-opentype'),
+       url('./solido-medium-webfont.woff') format('woff'),
+       url('./solido-medium-webfont.ttf') format('truetype'),
+       url('./solido-medium-webfont.svg#webfont') format('svg');
+  font-weight: normal;
+}
+
+@font-face{ 
+  font-family: 'solido';
+  src: url('./solido-mediumitalic-webfont.eot');
+  src: url('./solido-mediumitalic-webfont?#iefix') format('embedded-opentype'),
+       url('./solido-mediumitalic-webfont.woff') format('woff'),
+       url('./solido-mediumitalic-webfont.ttf') format('truetype'),
+       url('./solido-mediumitalic-webfont.svg#webfont') format('svg');
+  font-weight: normal;
+  font-style:italic;
+}
+
+a { color: #ff1d25; }
+
+body.chart {
+    font-family: solido;
+    font-weight: 400;
+    font-size: 14px;
+    margin: 0 5px;
+    background: #fff;
+}
+
+h1 {
+    font-family: solido;
+    font-size: 22px;
+    font-weight: 300;
+    margin: 0 0 10px;
+    text-align: left;
+}
+
+#footer .footer-right {
+    bottom: 0;
+    right: 10%;
+}
+
+#footer .footer-right:after {
+    position: absolute;
+    bottom:-3px;
+    left:100%;
+    content:url("./logo.jpg");
+}
