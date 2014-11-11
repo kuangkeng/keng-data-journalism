@@ -10,8 +10,12 @@ class DatawrapperPlugin_ThemeDefault extends DatawrapperPlugin {
         return array(
             'id' => 'default',
             'title' => 'Datawrapper',
-            'version' => '1.5.2'
+            'version' => '1.5.2',
+            'default_width' => 550,
+            'default_height' => 400,
         );
     }
+
+
 
 }
