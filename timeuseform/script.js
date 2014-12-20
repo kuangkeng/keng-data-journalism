@@ -1,3 +1,5 @@
+//VERSION 2
+
 $("#message, #workboxmore, #workboxless, #sleepboxmore, #sleepboxless, #shopboxmore, #shopboxless, #tvboxmore, #tvboxless, #videoboxmore, #videoboxless, #sportsboxmore, #sportsboxless, #result").hide();
 
 var dataavg = {sleep: 8.74, work: 7.58, shop: 0.75, tv: 3.24, sports: 0.36, video: 0.48};
@@ -354,10 +356,11 @@ var tip = d3.tip()
   .offset([-10, 0])
   .html(function(d) {return d.tooltip;});
 
-var svg = d3.select("#barbox").append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
-  .append("g")
+var svg = d3.select("#barbox")
+	.append("svg")
+	.attr("width", width + margin.left + margin.right)
+	.attr("height", height + margin.top + margin.bottom)
+  	.append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 svg.call(tip);
@@ -433,6 +436,15 @@ svg.selectAll("text.name")
 function type(d) {
   d.value = +d.value;
   return d;}
+
+var chart = $(".box1"),
+    aspect = chart.width() / chart.height(),
+    container = chart.parent();
+$(window).on("resize", function() {
+    var targetWidth = container.width();
+    chart.attr("width", targetWidth);
+    chart.attr("height", Math.round(targetWidth / aspect));
+}).trigger("resize");
 
 //create a new array based on calculation of population average values
 
