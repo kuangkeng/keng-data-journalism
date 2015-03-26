@@ -1,12 +1,12 @@
-google.load("visualization", "1", {packages:["corechart"]});
+        google.load("visualization", "1", {packages:["corechart"]});
         google.setOnLoadCallback(init);
         function init(){
               var rowData1 = [['', 'Percentage of total companies', { role: 'style' }],
                     ['Top 100 companies', 2.38, 'F7A8AC'],
-                    ['Other companies', 97.62, '3F9AF2']];
-    var rowData2 = [['', 'Percentage of total contract value', { role: 'style' }],
+                    ['Other companies', 97.62, 'A8D4F7']];
+    var rowData2 = [['', 'Percentage of total contracts', { role: 'style' }],
                     ['Top 100 companies', 38.17, 'F7A8AC'],
-                    ['Other companies', 61.83, '3F9AF2']];
+                    ['Other companies', 61.83, 'A8D4F7']];
 
             // Create and populate the data tables.
             var data = [];
@@ -15,14 +15,13 @@ google.load("visualization", "1", {packages:["corechart"]});
 
             var options = {
               width: 400,
-              height: 300,
-              fontSize: 14,
+              height: 240,
               vAxis: {title: "Percentage (%)"},
               seriesType: "bars",
               series: {5: {type: "line"}},
               legend: { position: "none" },
               animation:{
-                duration: 2000,
+                duration: 1000,
                 easing: 'out'
               },
             };
@@ -39,7 +38,7 @@ google.load("visualization", "1", {packages:["corechart"]});
                     button.disabled = false;
                     button.value = 'Switch to ' + (current ? 'Tea' : 'Coffee');
                   });
-              options['title'] = 'Percentage of total ' + (current ? 'contract value' : 'companies');
+              options['title'] = 'Percentage of total ' + (current ? 'contracts' : 'companies');
 
               chart.draw(data[current], options);
             }
