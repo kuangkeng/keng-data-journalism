@@ -44,17 +44,15 @@
           {
         color: #8A8A8A;
           }
+
       #barchart  {
         margin:auto;
-        font-size:12px;
+        font-size:14px;
         font-family:arial;
-        margin-left: 10%;
       }
 
       #b1{
-        margin-top: 20%;
-        margin-right: 0;
-        margin-left: 0;
+        margin:auto;
         font-size:14px;
       }
 
